@@ -1,4 +1,4 @@
-package com.notioner.newarchitecture.components;
+package com.dsavisualizer.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

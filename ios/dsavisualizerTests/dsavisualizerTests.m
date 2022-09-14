@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface notionerTests : XCTestCase
+@interface dsavisualizerTests : XCTestCase
 
 @end
 
-@implementation notionerTests
+@implementation dsavisualizerTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

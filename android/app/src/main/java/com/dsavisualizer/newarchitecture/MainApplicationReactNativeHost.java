@@ -1,4 +1,4 @@
-package com.notioner.newarchitecture;
+package com.dsavisualizer.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.notioner.BuildConfig;
-import com.notioner.newarchitecture.components.MainComponentsRegistry;
-import com.notioner.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.dsavisualizer.BuildConfig;
+import com.dsavisualizer.newarchitecture.components.MainComponentsRegistry;
+import com.dsavisualizer.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
