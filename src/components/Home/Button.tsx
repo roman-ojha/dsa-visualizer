@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
+import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 import CustomIcons from '../CustomIcons/CustomIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import constants from '../../constants';
@@ -18,17 +18,19 @@ const Button: React.FC<ButtonProps> = ({
   size,
 }): JSX.Element => {
   return (
-    <TouchableOpacity>
-      <View style={styles.container}>
-        {from === 'customIcons' ? (
-          <CustomIcons name={icon} size={size} style={styles.icon} />
-        ) : from === 'fontAwesome' ? (
-          <FontAwesome name={icon} size={size} style={styles.icon} />
-        ) : (
-          ''
-        )}
-        <Text style={styles.title}>{title}</Text>
-      </View>
+    <TouchableOpacity
+      onPress={() => {
+        console.log('hello');
+      }}
+      style={styles.container}>
+      {from === 'customIcons' ? (
+        <CustomIcons name={icon} size={size} style={styles.icon} />
+      ) : from === 'fontAwesome' ? (
+        <FontAwesome name={icon} size={size} style={styles.icon} />
+      ) : (
+        ''
+      )}
+      <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -43,6 +45,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    shadowColor: 'black',
+    shadowOffset: {
+      height: 20,
+      width: -10,
+    },
+    shadowOpacity: 10,
+    shadowRadius: 10,
   },
   icon: {
     color: 'black',
