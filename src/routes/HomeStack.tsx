@@ -7,15 +7,16 @@ import SortingVisualizer from '../screens/SortingVisualizer';
 import StackVisualizer from '../screens/StackVisualizer';
 import Home from '../screens/Home';
 
-const HomeStack = createStackNavigator();
+export type HomeStackParamList = {
+  home: undefined;
+  sortingVisualizer: undefined;
+  pathFinder: undefined;
+  stackVisualizer: undefined;
+  queueVisualizer: undefined;
+  linkedListVisualizer: undefined;
+};
 
-export type HomeRoutesName =
-  | 'home'
-  | 'sortingVisualizer'
-  | 'pathFinder'
-  | 'stackVisualizer'
-  | 'queueVisualizer'
-  | 'linkedListVisualizer';
+const HomeStack = createStackNavigator<HomeStackParamList>();
 
 const HomeRoutes = () => {
   return (
