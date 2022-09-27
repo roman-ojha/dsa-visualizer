@@ -6,4 +6,8 @@ export default StyleSheet.create({
     width: screenConst.screenWidth,
     height: screenConst.screenHeight,
   },
+  visualizerPageAppIcon: {
+    width: 50,
+    height: 50,
+  },
 });

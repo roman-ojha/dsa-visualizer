@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import generateRandomArray from '../../utils/generateRandomArray';
 import {stylesConst, screenConst} from '../../constants';
 
 const SortingField = (): JSX.Element => {
-  //   const [array] = useState<number[]>(generateRandomArray(20));
-  const array = generateRandomArray(20);
+  const [array] = useState<number[]>(generateRandomArray(20));
+  //   const array = generateRandomArray(20);
   console.log(array);
   return (
     <>
