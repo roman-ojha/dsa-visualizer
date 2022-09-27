@@ -1,10 +1,11 @@
 import React from 'react';
 import {StyleSheet, View, SafeAreaView, Image} from 'react-native';
+import {} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import constants from '../constants';
 import Button from '../components/Home/Button';
 
-const Home = (): JSX.Element => {
+const Home = ({navigation}): JSX.Element => {
   return (
     <SafeAreaView>
       <LinearGradient
@@ -20,30 +21,37 @@ const Home = (): JSX.Element => {
             icon="wave"
             from="customIcons"
             size={30}
+            navigateToVisualizer={() => {
+              navigation.navigate('sortingVisualizer');
+            }}
           />
           <Button
             title="Path finder"
             icon="graph"
             from="customIcons"
             size={30}
+            navigateToVisualizer={() => {}}
           />
           <Button
             title="Stack Visualizer"
             icon="stack"
             from="customIcons"
             size={30}
+            navigateToVisualizer={() => {}}
           />
           <Button
             title="Queue Visualizer"
             icon="people-queue"
             from="customIcons"
             size={30}
+            navigateToVisualizer={() => {}}
           />
           <Button
             title="Linked List Visualizer"
             icon="project-diagram"
             from="fontAwesome"
             size={30}
+            navigateToVisualizer={() => {}}
           />
         </View>
       </LinearGradient>

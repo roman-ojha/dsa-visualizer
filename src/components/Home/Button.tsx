@@ -9,6 +9,7 @@ interface ButtonProps {
   icon: string;
   from: 'fontAwesome' | 'customIcons';
   size: number;
+  navigateToVisualizer: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,13 +17,10 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   from,
   size,
+  navigateToVisualizer,
 }): JSX.Element => {
   return (
-    <TouchableOpacity
-      onPress={() => {
-        console.log('hello');
-      }}
-      style={styles.container}>
+    <TouchableOpacity onPress={navigateToVisualizer} style={styles.container}>
       {from === 'customIcons' ? (
         <CustomIcons name={icon} size={size} style={styles.icon} />
       ) : from === 'fontAwesome' ? (
