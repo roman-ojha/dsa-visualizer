@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, View, SafeAreaView, Image} from 'react-native';
+import {StyleSheet, View, SafeAreaView, Image, StatusBar} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import LinearGradient from 'react-native-linear-gradient';
 import constants from '../constants';
 import Button from '../components/Home/Button';
 import {HomeStackParamList} from '../routes/HomeStack';
+import {mixins} from '../styles';
 
 interface HomeProps {
   navigation: StackNavigationProp<HomeStackParamList, 'home'>;
@@ -13,10 +14,11 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({navigation}): JSX.Element => {
   return (
     <SafeAreaView>
+      <StatusBar backgroundColor="black" />
       <LinearGradient
         colors={[
-          constants.styles.colors.primary[600],
-          constants.styles.colors.primary[800],
+          constants.styles.colors.secondary1[600],
+          constants.styles.colors.secondary2[800],
         ]}
         style={styles.container}>
         <Image source={constants.app.appIcon} style={styles.appIcon} />
@@ -75,7 +77,7 @@ const Home: React.FC<HomeProps> = ({navigation}): JSX.Element => {
 
 const styles = StyleSheet.create({
   container: {
-    height: constants.screen.screenHeight,
+    ...mixins.takeFullPage,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
