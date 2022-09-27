@@ -30,7 +30,6 @@ const Home: React.FC<HomeProps> = ({navigation}): JSX.Element => {
             size={30}
             navigateToVisualizer={() => {
               navigation.navigate('sortingVisualizer');
-              console.log(navigation.getId());
             }}
           />
           <Button
