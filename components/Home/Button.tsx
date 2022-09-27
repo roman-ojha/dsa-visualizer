@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 import CustomIcons from '../CustomIcons/CustomIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
+import stylesConst from '../../constants/styles';
 
 interface ButtonProps {
   title: string;
@@ -18,20 +19,41 @@ const Button: React.FC<ButtonProps> = ({
 }): JSX.Element => {
   return (
     <TouchableOpacity>
-      <View>
+      <View style={styles.container}>
         {from === 'customIcons' ? (
-          <CustomIcons name={icon} color="black" size={size} />
+          <CustomIcons name={icon} size={size} style={styles.icon} />
         ) : from === 'fontAwesome' ? (
-          <FontAwesome name={icon} color="black" size={size} />
+          <FontAwesome name={icon} size={size} style={styles.icon} />
         ) : (
           ''
         )}
-        <Text>{title}</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
     </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: stylesConst.colors.secondary[700],
+    marginBottom: 20,
+    padding: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  icon: {
+    color: 'black',
+    marginLeft: 5,
+  },
+  title: {
+    marginLeft: 15,
+    fontWeight: 'bold',
+    fontSize: 15,
+    color: 'black',
+  },
+});
 
 export default Button;
