@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import Home from './screens/Home';
+import Home from './src/views/Home';
 
 const App = () => {
   useEffect(() => {
