@@ -3,9 +3,9 @@ import {StyleSheet, View, SafeAreaView, Image, StatusBar} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import LinearGradient from 'react-native-linear-gradient';
 import constants from '../constants';
-import Button from '../components/Home/Button';
 import {HomeStackParamList} from '../routes/HomeStack';
 import {mixins} from '../styles';
+import Buttons from '../components/Home/VisualizerNavigator';
 
 interface HomeProps {
   navigation: StackNavigationProp<HomeStackParamList, 'home'>;
@@ -23,51 +23,7 @@ const Home: React.FC<HomeProps> = ({navigation}): JSX.Element => {
         style={styles.container}>
         <Image source={constants.app.appIcon} style={styles.appIcon} />
         <View style={styles.buttonContainer}>
-          <Button
-            title="Sorting Visualizer"
-            icon="wave"
-            from="customIcons"
-            size={30}
-            navigateToVisualizer={() => {
-              navigation.navigate('sortingVisualizer');
-            }}
-          />
-          <Button
-            title="Path finder"
-            icon="graph"
-            from="customIcons"
-            size={30}
-            navigateToVisualizer={() => {
-              navigation.navigate('pathFinder');
-            }}
-          />
-          <Button
-            title="Stack Visualizer"
-            icon="stack"
-            from="customIcons"
-            size={30}
-            navigateToVisualizer={() => {
-              navigation.navigate('stackVisualizer');
-            }}
-          />
-          <Button
-            title="Queue Visualizer"
-            icon="people-queue"
-            from="customIcons"
-            size={30}
-            navigateToVisualizer={() => {
-              navigation.navigate('queueVisualizer');
-            }}
-          />
-          <Button
-            title="Linked List Visualizer"
-            icon="project-diagram"
-            from="fontAwesome"
-            size={30}
-            navigateToVisualizer={() => {
-              navigation.navigate('linkedListVisualizer');
-            }}
-          />
+          <Buttons navigation={navigation} />
         </View>
       </LinearGradient>
     </SafeAreaView>

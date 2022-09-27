@@ -4,7 +4,7 @@ import CustomIcons from '../CustomIcons/CustomIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import constants from '../../constants';
 
-interface ButtonProps {
+export interface ButtonProps {
   title: string;
   icon: string;
   from: 'fontAwesome' | 'customIcons';
@@ -46,13 +46,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    // shadowColor: 'black',
-    // shadowOffset: {
-    //   height: 20,
-    //   width: -10,
-    // },
-    // shadowOpacity: 10,
-    // shadowRadius: 10,
   },
   icon: {
     color: 'black',
