@@ -1,22 +1,19 @@
 import React from 'react';
-import {StyleSheet, View, SafeAreaView, Dimensions, Image} from 'react-native';
+import {StyleSheet, View, SafeAreaView, Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import constStyles from '../constants/styles';
+import constants from '../constants';
 import Button from '../components/Home/Button';
-import appIcon from '../assets/images/appIcon.png';
-
-const screenHeight = Dimensions.get('screen').height;
 
 const Home = (): JSX.Element => {
   return (
     <SafeAreaView>
       <LinearGradient
         colors={[
-          constStyles.colors.primary[600],
-          constStyles.colors.primary[800],
+          constants.styles.colors.primary[600],
+          constants.styles.colors.primary[800],
         ]}
         style={styles.container}>
-        <Image source={appIcon} style={styles.appIcon} />
+        <Image source={constants.app.appIcon} style={styles.appIcon} />
         <View style={styles.buttonContainer}>
           <Button
             title="Sorting Visualizer"
@@ -56,7 +53,7 @@ const Home = (): JSX.Element => {
 
 const styles = StyleSheet.create({
   container: {
-    height: screenHeight,
+    height: constants.screen.screenHeight,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',

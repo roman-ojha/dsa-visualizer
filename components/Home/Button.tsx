@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 import CustomIcons from '../CustomIcons/CustomIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import stylesConst from '../../constants/styles';
+import constants from '../../constants';
 
 interface ButtonProps {
   title: string;
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: stylesConst.colors.secondary[700],
+    backgroundColor: constants.styles.colors.secondary[700],
     marginBottom: 20,
     padding: 10,
     borderRadius: 10,
