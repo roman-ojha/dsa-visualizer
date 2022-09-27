@@ -3,8 +3,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import {StyleSheet, SafeAreaView, Text} from 'react-native';
 import constants from '../constants';
 import {mixins} from '../styles';
+import generateRandomArray from '../utils/generateRandomArray';
 
 const SortingVisualizer = (): JSX.Element => {
+  console.log(generateRandomArray(20));
   return (
     <SafeAreaView>
       <LinearGradient
