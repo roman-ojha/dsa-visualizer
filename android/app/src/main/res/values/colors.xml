@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- defining color for splash screen -->
+    <color name="primary_dark">#000000</color>
+    <color name="gradientend">#FF9974</color>
+    <color name="gradientstart">#FFFFFF</color>
+    <color name="status_bar_color">#FF9974</color>
+</resources>

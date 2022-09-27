@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_gb">
+    <!-- adding gradient background design in splash screen -->
+    <ImageView
+        android:id="@+id/logo"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"/>
+        <!-- optional if you want to add more desing inside splash screen you can do that -->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="DSAVisualizer"-->
+<!--        android:layout_below="@+id/logo"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="30sp"-->
+<!--        android:textColor="#ff435b"-->
+<!--        android:layout_marginTop="10dp"/>-->
+</RelativeLayout>
