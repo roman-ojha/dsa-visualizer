@@ -1,9 +1,9 @@
 import {StyleSheet} from 'react-native';
-import constants from '../constants';
+import {screenConst} from '../constants';
 
 export default StyleSheet.create({
   takeFullPage: {
-    width: constants.screen.screenWidth,
-    height: constants.screen.screenHeight,
+    width: screenConst.screenWidth,
+    height: screenConst.screenHeight,
   },
 });

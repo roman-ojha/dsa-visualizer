@@ -20,7 +20,10 @@ const Button: React.FC<ButtonProps> = ({
   navigateToVisualizer,
 }): JSX.Element => {
   return (
-    <TouchableOpacity onPress={navigateToVisualizer} style={styles.container}>
+    <TouchableOpacity
+      onPress={navigateToVisualizer}
+      style={styles.container}
+      activeOpacity={0.85}>
       {from === 'customIcons' ? (
         <CustomIcons name={icon} size={size} style={styles.icon} />
       ) : from === 'fontAwesome' ? (
@@ -43,13 +46,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: 'black',
-    shadowOffset: {
-      height: 20,
-      width: -10,
-    },
-    shadowOpacity: 10,
-    shadowRadius: 10,
+    // shadowColor: 'black',
+    // shadowOffset: {
+    //   height: 20,
+    //   width: -10,
+    // },
+    // shadowOpacity: 10,
+    // shadowRadius: 10,
   },
   icon: {
     color: 'black',

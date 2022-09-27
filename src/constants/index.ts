@@ -1,9 +1,10 @@
-import screen from './screen';
-import styles from './styles';
-import app from './app';
+import screenConst from './screen';
+import stylesConst from './styles';
+import appConst from './app';
 
 export default {
-  styles,
-  screen,
-  app,
+  styles: stylesConst,
+  screen: screenConst,
+  app: appConst,
 };
+export {screenConst, stylesConst, appConst};
