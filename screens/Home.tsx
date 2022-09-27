@@ -12,11 +12,31 @@ const Home = (): JSX.Element => {
       <LinearGradient
         colors={[constStyles.primary[600], constStyles.primary[800]]}
         style={styles.container}>
-        <Button title="Sorting Visualizer" icon="sort" />
-        <Button title="Path finder" icon="sort" />
-        <Button title="Stack Visualizer" icon="sort" />
-        <Button title="Queue Visualizer" icon="sort" />
-        <Button title="Linked List Visualizer" icon="sort" />
+        <Button
+          title="Sorting Visualizer"
+          icon="wave"
+          from="customIcons"
+          size={30}
+        />
+        <Button title="Path finder" icon="graph" from="customIcons" size={30} />
+        <Button
+          title="Stack Visualizer"
+          icon="stack"
+          from="customIcons"
+          size={30}
+        />
+        <Button
+          title="Queue Visualizer"
+          icon="people-queue"
+          from="customIcons"
+          size={30}
+        />
+        <Button
+          title="Linked List Visualizer"
+          icon="project-diagram"
+          from="fontAwesome"
+          size={30}
+        />
       </LinearGradient>
     </SafeAreaView>
   );

@@ -1,26 +1,31 @@
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
-// import MaterialIcons from 'react-native-vector-icons/App';
-import {createIconSet} from 'react-native-vector-icons';
-const Icon = createIconSet(
-  {
-    stack: 90,
-  },
-  'app-icons',
-  'app-icons.ttf',
-);
+import CustomIcons from '../CustomIcons/CustomIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 
 interface ButtonProps {
   title: string;
   icon: string;
+  from: 'fontAwesome' | 'customIcons';
+  size: number;
 }
 
-const Button: React.FC<ButtonProps> = ({title, icon}): JSX.Element => {
+const Button: React.FC<ButtonProps> = ({
+  title,
+  icon,
+  from,
+  size,
+}): JSX.Element => {
   return (
     <TouchableOpacity>
       <View>
-        {/* <MaterialIcons name="delete" color="black" size={18} /> */}
-        <Icon name="stack" />
+        {from === 'customIcons' ? (
+          <CustomIcons name={icon} color="black" size={size} />
+        ) : from === 'fontAwesome' ? (
+          <FontAwesome name={icon} color="black" size={size} />
+        ) : (
+          ''
+        )}
         <Text>{title}</Text>
       </View>
     </TouchableOpacity>
