@@ -10,6 +10,7 @@ export default {
     },
     primary: {
       700: '#c183ffB3',
+      1000: '#c082ff',
     },
   },
 };

@@ -1,12 +1,11 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {StyleSheet, SafeAreaView, Text} from 'react-native';
+import {StyleSheet, SafeAreaView, View, Image} from 'react-native';
 import constants from '../constants';
 import {mixins} from '../styles';
-import generateRandomArray from '../utils/generateRandomArray';
+import SortingField from '../components/SortingVisualizer/SortingField';
 
 const SortingVisualizer = (): JSX.Element => {
-  console.log(generateRandomArray(20));
   return (
     <SafeAreaView>
       <LinearGradient
@@ -15,7 +14,8 @@ const SortingVisualizer = (): JSX.Element => {
           constants.styles.colors.secondary2[150],
         ]}
         style={styles.container}>
-        <Text style={styles.text}>Sorting Visualizer</Text>
+        {/* <Image source={constants.app.appIconRounded} /> */}
+        <SortingField />
       </LinearGradient>
     </SafeAreaView>
   );
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {fontSize: 30, color: 'black'},
 });
 
 export default SortingVisualizer;

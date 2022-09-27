@@ -1,9 +1,9 @@
-const randomNumber10To99 = () => {
+const randomNumber10To99 = (): number => {
   // generating random from 10 - 99
-  return Math.floor(Math.random() * 90 + 10);
+  return Math.floor(Math.random() * 90) + 10;
 };
 
-const generateRandomArray = (length: number) => {
+const generateRandomArray = (length: number): number[] => {
   const array = [];
   for (let i = 0; i < length; i++) {
     array.push(randomNumber10To99());
