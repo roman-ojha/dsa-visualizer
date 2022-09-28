@@ -4,7 +4,9 @@ import generateRandomArray from '../../utils/generateRandomArray';
 import {stylesConst} from '../../constants';
 
 const SortingField = (): JSX.Element => {
-  const [array] = useState<number[]>(generateRandomArray(30));
+  // const [array] = useState<number[]>(generateRandomArray(30));
+  const array = [];
+
   return (
     <>
       <View style={styles.container}>

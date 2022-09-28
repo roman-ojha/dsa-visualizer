@@ -1,4 +1,4 @@
-import {Array as SortingVisualizerArray} from '../redux/modules/sortingVisualizer/types';
+import {Array as SortingVisualizerArray} from '../redux/sortingVisualizer/types';
 
 const randomNumber10To99 = (): number => {
   // generating random from 10 - 99

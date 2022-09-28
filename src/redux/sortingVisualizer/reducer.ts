@@ -1,5 +1,5 @@
 import {State, Action, ActionTypes} from './types';
-import generateRandomArray from '../../../utils/generateRandomArray';
+import generateRandomArray from '../../utils/generateRandomArray';
 
 const initialState: State = {
   arraySize: 30,
