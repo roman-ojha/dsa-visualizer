@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
-import constants, {screenConst} from '../constants';
+import constants, {screenConst, stylesConst} from '../constants';
 import {mixins} from '../styles';
 import SortingField from '../components/SortingVisualizer/SortingField';
 import CustomIcons from '../components/CustomIcons/CustomIcons';
@@ -34,9 +34,9 @@ const SortingVisualizer = (): JSX.Element => {
           <Image source={constants.app.appIconRounded} style={styles.appIcon} />
         </View>
         <View style={styles.middleContainer}>
+          <View style={styles.voidContainer} />
           <SortingField />
           <View style={styles.titleAndRandomArrayButtonContainer}>
-            <View />
             <Text style={styles.sortingTitle}>Bubble Sort</Text>
             <TouchableOpacity style={styles.generateRandomArrayButton}>
               <Text style={styles.generateRandomArrayText}>
@@ -68,32 +68,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: screenConst.screenHeight,
     height: screenConst.screenWidth,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'red',
   },
   header: {
     height: screenConst.screenWidth,
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'green',
   },
   appIcon: {
     ...mixins.visualizerPageAppIcon,
-    marginTop: 10,
-    marginLeft: 10,
+    marginTop: 13,
+    marginLeft: 13,
   },
   editContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'green',
   },
   editIcon: {
     color: 'black',
@@ -105,33 +96,43 @@ const styles = StyleSheet.create({
     transform: [{rotate: '-90deg'}],
   },
   middleContainer: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'red',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     height: screenConst.screenWidth,
   },
+  voidContainer: {
+    marginBottom: 20,
+    height: 50,
+  },
   titleAndRandomArrayButtonContainer: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'blue',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'stretch',
+    position: 'relative',
+    marginTop: 20,
+    height: 50,
   },
   sortingTitle: {
-    // transform: [{rotate: '90deg'}],
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: stylesConst.colors.font[80],
   },
   generateRandomArrayButton: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'red',
-    // transform: [{rotate: '90deg'}],
+    position: 'absolute',
+    right: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#212121',
+    borderRadius: 10,
   },
-  generateRandomArrayText: {},
+  generateRandomArrayText: {
+    color: stylesConst.colors.font[0],
+  },
 });
 
 export default SortingVisualizer;
