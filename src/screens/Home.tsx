@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, View, SafeAreaView, Image, StatusBar} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import LinearGradient from 'react-native-linear-gradient';
@@ -6,12 +6,20 @@ import constants from '../constants';
 import {HomeStackParamList} from '../routes/HomeStack';
 import {mixins} from '../styles';
 import Buttons from '../components/Home/VisualizerNavigator';
+import Orientation from 'react-native-orientation-locker';
 
 interface HomeProps {
   navigation: StackNavigationProp<HomeStackParamList, 'home'>;
 }
 
 const Home: React.FC<HomeProps> = ({navigation}): JSX.Element => {
+  useEffect(() => {
+    Orientation.lockToPortrait();
+    navigation.addListener('focus', () => {
+      Orientation.lockToPortrait();
+    });
+  }, [navigation]);
+
   return (
     <SafeAreaView>
       <StatusBar backgroundColor="black" />
