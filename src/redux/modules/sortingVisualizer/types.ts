@@ -1,13 +1,15 @@
+export interface Array {
+  item: number;
+  sorted: boolean;
+  // sorted: if particular item get sorted
+  sorting: boolean;
+  // sorting: if particular item is now being evaluating and sorting
+}
+
 export interface State {
   arraySize: number;
   sortingAlgorithm: 'bubble' | 'insertion' | 'quick' | 'merge';
-  array: {
-    item: number;
-    sorted: boolean;
-    // sorted: if particular item get sorted
-    sorting: boolean;
-    // sorting: if particular item is now being evaluating and sorting
-  }[];
+  array: Array[];
   speed: 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100;
 }
 

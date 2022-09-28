@@ -1,12 +1,19 @@
+import {Array as SortingVisualizerArray} from '../redux/modules/sortingVisualizer/types';
+
 const randomNumber10To99 = (): number => {
   // generating random from 10 - 99
   return Math.floor(Math.random() * 90) + 10;
 };
 
-const generateRandomArray = (length: number): number[] => {
-  const array = [];
+const generateRandomArray = (length: number): SortingVisualizerArray[] => {
+  const array: SortingVisualizerArray[] = [];
   for (let i = 0; i < length; i++) {
-    array.push(randomNumber10To99());
+    // array.push(randomNumber10To99());
+    array.push({
+      item: randomNumber10To99(),
+      sorted: false,
+      sorting: false,
+    });
   }
   return array;
 };
