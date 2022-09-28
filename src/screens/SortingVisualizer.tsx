@@ -4,7 +4,6 @@ import {
   StyleSheet,
   SafeAreaView,
   View,
-  Image,
   Text,
   TouchableOpacity,
   StatusBar,
@@ -14,10 +13,10 @@ import {mixins} from '../styles';
 import SortingField from '../components/SortingVisualizer/SortingField';
 import CustomIcons from '../components/CustomIcons/CustomIcons';
 import Orientation from 'react-native-orientation-locker';
+import VisualizerAppIcon from '../components/VisualizerAppIcon';
 
 const SortingVisualizer = (): JSX.Element => {
   useEffect(() => {
-    console.log('sorting');
     Orientation.lockToLandscape();
   }, []);
 
@@ -31,17 +30,20 @@ const SortingVisualizer = (): JSX.Element => {
         ]}
         style={styles.container}>
         <View style={styles.header}>
-          <Image source={constants.app.appIconRounded} style={styles.appIcon} />
+          <VisualizerAppIcon />
         </View>
         <View style={styles.middleContainer}>
           <View style={styles.voidContainer} />
           <SortingField />
           <View style={styles.titleAndRandomArrayButtonContainer}>
-            <Text style={styles.sortingTitle}>Bubble Sort</Text>
             <TouchableOpacity style={styles.generateRandomArrayButton}>
               <Text style={styles.generateRandomArrayText}>
                 Generate Random Array
               </Text>
+            </TouchableOpacity>
+            <Text style={styles.sortingTitle}>Bubble Sort</Text>
+            <TouchableOpacity style={styles.sortButton}>
+              <Text style={styles.generateRandomArrayText}>Sort</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -74,11 +76,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-  },
-  appIcon: {
-    ...mixins.visualizerPageAppIcon,
-    marginTop: 13,
-    marginLeft: 13,
   },
   editContainer: {
     display: 'flex',
@@ -122,6 +119,16 @@ const styles = StyleSheet.create({
   },
   generateRandomArrayButton: {
     position: 'absolute',
+    left: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#212121',
+    borderRadius: 10,
+  },
+  sortButton: {
+    position: 'absolute',
     right: 0,
     display: 'flex',
     justifyContent: 'center',
@@ -129,6 +136,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#212121',
     borderRadius: 10,
+    width: 100,
   },
   generateRandomArrayText: {
     color: stylesConst.colors.font[0],
