@@ -1,44 +1,52 @@
-import {State, ActionTypes, Action} from './types';
+import {
+  SortingVisualizerState,
+  SortingVisualizerActionTypes,
+  SortingVisualizerAction,
+} from './types';
 import {Dispatch} from 'react';
 
 export const generateRandomSortingArray = () => {
-  return (dispatch: Dispatch<Action>) => {
+  return (dispatch: Dispatch<SortingVisualizerAction>) => {
     dispatch({
-      type: ActionTypes.GENERATE_RANDOM_SORTING_ARRAY,
+      type: SortingVisualizerActionTypes.GENERATE_RANDOM_SORTING_ARRAY,
     });
   };
 };
 
 export const sortArray = () => {
-  return (dispatch: Dispatch<Action>) => {
+  return (dispatch: Dispatch<SortingVisualizerAction>) => {
     dispatch({
-      type: ActionTypes.SORT_ARRAY,
+      type: SortingVisualizerActionTypes.SORT_ARRAY,
     });
   };
 };
 
-export const changeSortingSpeed = (data: State['speed']) => {
-  return (dispatch: Dispatch<Action>) => {
+export const changeSortingSpeed = (data: SortingVisualizerState['speed']) => {
+  return (dispatch: Dispatch<SortingVisualizerAction>) => {
     dispatch({
-      type: ActionTypes.CHANGE_SORTING_SPEED,
+      type: SortingVisualizerActionTypes.CHANGE_SORTING_SPEED,
       payload: data,
     });
   };
 };
 
-export const changeSortingArraySize = (data: State['arraySize']) => {
-  return (dispatch: Dispatch<Action>) => {
+export const changeSortingArraySize = (
+  data: SortingVisualizerState['arraySize'],
+) => {
+  return (dispatch: Dispatch<SortingVisualizerAction>) => {
     dispatch({
-      type: ActionTypes.CHANGE_SORTING_ARRAY_SIZE,
+      type: SortingVisualizerActionTypes.CHANGE_SORTING_ARRAY_SIZE,
       payload: data,
     });
   };
 };
 
-export const changeSortingAlgorithm = (data: State['sortingAlgorithm']) => {
-  return (dispatch: Dispatch<Action>) => {
+export const changeSortingAlgorithm = (
+  data: SortingVisualizerState['sortingAlgorithm'],
+) => {
+  return (dispatch: Dispatch<SortingVisualizerAction>) => {
     dispatch({
-      type: ActionTypes.CHANGE_SORTING_ALGORITHM,
+      type: SortingVisualizerActionTypes.CHANGE_SORTING_ALGORITHM,
       payload: data,
     });
   };

@@ -6,14 +6,14 @@ export interface Array {
   // sorting: if particular item is now being evaluating and sorting
 }
 
-export interface State {
+export interface SortingVisualizerState {
   arraySize: number;
   sortingAlgorithm: 'bubble' | 'insertion' | 'quick' | 'merge';
   array: Array[];
   speed: 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100;
 }
 
-export enum ActionTypes {
+export enum SortingVisualizerActionTypes {
   GENERATE_RANDOM_SORTING_ARRAY = 'GENERATE_RANDOM_SORTING_ARRAY',
   SORT_ARRAY = 'SORT_ARRAY',
   CHANGE_SORTING_SPEED = 'CHANGE_SORTING_SPEED',
@@ -22,29 +22,29 @@ export enum ActionTypes {
 }
 
 export interface GenerateRandomSortingArray {
-  type: ActionTypes.GENERATE_RANDOM_SORTING_ARRAY;
+  type: SortingVisualizerActionTypes.GENERATE_RANDOM_SORTING_ARRAY;
 }
 
 export interface SortArray {
-  type: ActionTypes.SORT_ARRAY;
+  type: SortingVisualizerActionTypes.SORT_ARRAY;
 }
 
 export interface ChangeSortingSpeed {
-  type: ActionTypes.CHANGE_SORTING_SPEED;
-  payload: State['speed'];
+  type: SortingVisualizerActionTypes.CHANGE_SORTING_SPEED;
+  payload: SortingVisualizerState['speed'];
 }
 
 export interface ChangeSortingArraySize {
-  type: ActionTypes.CHANGE_SORTING_ARRAY_SIZE;
-  payload: State['arraySize'];
+  type: SortingVisualizerActionTypes.CHANGE_SORTING_ARRAY_SIZE;
+  payload: SortingVisualizerState['arraySize'];
 }
 
 export interface ChangeSortingAlgorithm {
-  type: ActionTypes.CHANGE_SORTING_ALGORITHM;
-  payload: State['sortingAlgorithm'];
+  type: SortingVisualizerActionTypes.CHANGE_SORTING_ALGORITHM;
+  payload: SortingVisualizerState['sortingAlgorithm'];
 }
 
-export type Action =
+export type SortingVisualizerAction =
   | GenerateRandomSortingArray
   | SortArray
   | ChangeSortingSpeed

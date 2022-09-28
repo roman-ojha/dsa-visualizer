@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import generateRandomArray from '../../utils/generateRandomArray';
 import {stylesConst} from '../../constants';
+import {useSelector} from 'react-redux';
+import {AppState} from '../../redux';
 
 const SortingField = (): JSX.Element => {
-  // const [array] = useState<number[]>(generateRandomArray(30));
-  const array = [];
+  const {array} = useSelector((state: AppState) => state.sortingVisualizer);
 
   return (
     <>
       <View style={styles.container}>
-        {array.map((item, key) => (
-          <View key={key} style={[styles.arrayItem, {height: item * 2.1}]}>
-            <Text style={styles.itemNumber}>{item}</Text>
+        {array.map((elm, key) => (
+          <View key={key} style={[styles.arrayItem, {height: elm.item * 2.1}]}>
+            <Text style={styles.itemNumber}>{elm.item}</Text>
           </View>
         ))}
       </View>

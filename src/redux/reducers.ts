@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import sortingVisualizerReducer from './sortingVisualizer/reducer';
+import sortingVisualizer from './sortingVisualizer/reducer';
 
 const reducer = combineReducers({
-  sortingVisualizerReducer,
+  sortingVisualizer,
 });
 
 export default reducer;
