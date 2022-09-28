@@ -30,11 +30,12 @@ const SortingVisualizer = (): JSX.Element => {
           constants.styles.colors.secondary2[150],
         ]}
         style={styles.container}>
-        {/* <View style={styles.header}>
+        <View style={styles.header}>
           <Image source={constants.app.appIconRounded} style={styles.appIcon} />
-        </View> */}
+        </View>
         <View style={styles.middleContainer}>
-          {/* <View style={styles.titleAndRandomArrayButtonContainer}>
+          <SortingField />
+          <View style={styles.titleAndRandomArrayButtonContainer}>
             <View />
             <Text style={styles.sortingTitle}>Bubble Sort</Text>
             <TouchableOpacity style={styles.generateRandomArrayButton}>
@@ -42,10 +43,9 @@ const SortingVisualizer = (): JSX.Element => {
                 Generate Random Array
               </Text>
             </TouchableOpacity>
-          </View> */}
-          <SortingField />
+          </View>
         </View>
-        {/* <TouchableOpacity style={styles.editContainer}>
+        <TouchableOpacity style={styles.editContainer}>
           <CustomIcons
             name="arrow-circle"
             color="black"
@@ -53,7 +53,7 @@ const SortingVisualizer = (): JSX.Element => {
             style={styles.editIcon}
           />
           <Text style={styles.editText}>Edit</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </LinearGradient>
     </SafeAreaView>
   );
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
   container: {
     ...mixins.takeFullPage,
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: screenConst.screenHeight,
@@ -72,56 +73,63 @@ const styles = StyleSheet.create({
     borderColor: 'red',
   },
   header: {
-    width: screenConst.screenWidth,
+    height: screenConst.screenWidth,
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     alignItems: 'center',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'green',
   },
   appIcon: {
     ...mixins.visualizerPageAppIcon,
     marginTop: 10,
-    marginRight: 10,
+    marginLeft: 10,
   },
   editContainer: {
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'green',
   },
   editIcon: {
     color: 'black',
-    transform: [{rotate: '180deg'}],
+    transform: [{rotate: '90deg'}],
   },
   editText: {
     fontSize: 20,
     color: 'black',
+    transform: [{rotate: '-90deg'}],
   },
   middleContainer: {
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'red',
-    width: screenConst.screenWidth,
     display: 'flex',
-    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    height: screenConst.screenWidth,
   },
   titleAndRandomArrayButtonContainer: {
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'blue',
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   sortingTitle: {
-    transform: [{rotate: '90deg'}],
+    // transform: [{rotate: '90deg'}],
   },
   generateRandomArrayButton: {
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'red',
-    transform: [{rotate: '90deg'}],
+    // transform: [{rotate: '90deg'}],
   },
   generateRandomArrayText: {},
 });

@@ -11,7 +11,7 @@ const SortingField = (): JSX.Element => {
     <>
       <View style={styles.container}>
         {array.map((item, key) => (
-          <View key={key} style={[styles.arrayItem, {width: item * 2.5}]}>
+          <View key={key} style={[styles.arrayItem, {height: item * 2.5}]}>
             <Text style={styles.itemNumber}>{item}</Text>
           </View>
         ))}
@@ -23,13 +23,17 @@ const SortingField = (): JSX.Element => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    width: screenConst.screenWidth - 100,
+    // width: screenConst.screenHeight - 100,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'yellow',
   },
   arrayItem: {
     backgroundColor: stylesConst.colors.primary[1000],
-    marginBottom: 4,
+    marginRight: 4,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -37,7 +41,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   itemNumber: {
-    transform: [{rotate: '90deg'}],
     fontSize: 15,
     fontWeight: 'bold',
   },
