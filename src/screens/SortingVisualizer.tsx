@@ -14,8 +14,18 @@ import SortingField from '../components/SortingVisualizer/SortingField';
 import CustomIcons from '../components/CustomIcons/CustomIcons';
 import Orientation from 'react-native-orientation-locker';
 import VisualizerAppIcon from '../components/VisualizerAppIcon';
+import Title from '../components/SortingVisualizer/Title';
+import {bindActionCreators} from 'redux';
+import {actionCreators} from '../redux';
+import {useDispatch} from 'react-redux';
 
 const SortingVisualizer = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const {generateRandomSortingArray} = bindActionCreators(
+    actionCreators,
+    dispatch,
+  );
+
   useEffect(() => {
     Orientation.lockToLandscape();
   }, []);
@@ -36,12 +46,14 @@ const SortingVisualizer = (): JSX.Element => {
           <View style={styles.voidContainer} />
           <SortingField />
           <View style={styles.titleAndRandomArrayButtonContainer}>
-            <TouchableOpacity style={styles.generateRandomArrayButton}>
+            <TouchableOpacity
+              style={styles.generateRandomArrayButton}
+              onPress={generateRandomSortingArray}>
               <Text style={styles.generateRandomArrayText}>
                 Generate Random Array
               </Text>
             </TouchableOpacity>
-            <Text style={styles.sortingTitle}>Bubble Sort</Text>
+            <Title />
             <TouchableOpacity style={styles.sortButton}>
               <Text style={styles.generateRandomArrayText}>Sort</Text>
             </TouchableOpacity>
@@ -111,11 +123,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginTop: 20,
     height: 50,
-  },
-  sortingTitle: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: stylesConst.colors.font[80],
   },
   generateRandomArrayButton: {
     position: 'absolute',

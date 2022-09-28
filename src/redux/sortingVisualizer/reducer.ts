@@ -6,6 +6,7 @@ import {
 import generateRandomArray from '../../utils/generateRandomArray';
 
 const initialState: SortingVisualizerState = {
+  title: 'Bubble Sort',
   arraySize: 30,
   array: generateRandomArray(30),
   sortingAlgorithm: 'bubble',
@@ -18,7 +19,10 @@ const sortingVisualizer = (
 ) => {
   switch (action.type) {
     case SortingVisualizerActionTypes.GENERATE_RANDOM_SORTING_ARRAY:
-      return state;
+      return {
+        ...state,
+        array: generateRandomArray(30),
+      };
     case SortingVisualizerActionTypes.SORT_ARRAY:
       return state;
     case SortingVisualizerActionTypes.CHANGE_SORTING_SPEED:

@@ -7,6 +7,7 @@ export interface Array {
 }
 
 export interface SortingVisualizerState {
+  title: 'Bubble Sort' | 'Insertion Sort' | 'Quick Sort' | 'Merge Sort';
   arraySize: number;
   sortingAlgorithm: 'bubble' | 'insertion' | 'quick' | 'merge';
   array: Array[];
