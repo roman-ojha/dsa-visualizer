@@ -18,10 +18,11 @@ import Title from '../components/SortingVisualizer/Title';
 import {bindActionCreators} from 'redux';
 import {actionCreators} from '../redux';
 import {useDispatch} from 'react-redux';
+import SortButton from '../components/SortingVisualizer/SortButton';
 
 const SortingVisualizer = (): JSX.Element => {
   const dispatch = useDispatch();
-  const {generateRandomSortingArray, sortArray} = bindActionCreators(
+  const {generateRandomSortingArray} = bindActionCreators(
     actionCreators,
     dispatch,
   );
@@ -54,9 +55,7 @@ const SortingVisualizer = (): JSX.Element => {
               </Text>
             </TouchableOpacity>
             <Title />
-            <TouchableOpacity style={styles.sortButton} onPress={sortArray}>
-              <Text style={styles.generateRandomArrayText}>Sort</Text>
-            </TouchableOpacity>
+            <SortButton />
           </View>
         </View>
         <TouchableOpacity style={styles.editContainer}>
@@ -133,17 +132,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#212121',
     borderRadius: 10,
-  },
-  sortButton: {
-    position: 'absolute',
-    right: 0,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#212121',
-    borderRadius: 10,
-    width: 100,
   },
   generateRandomArrayText: {
     color: stylesConst.colors.font[0],

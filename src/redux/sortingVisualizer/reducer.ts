@@ -4,6 +4,7 @@ import {
   SortingVisualizerActionTypes,
 } from './types';
 import generateRandomArray from '../../utils/generateRandomArray';
+import {bubbleSort} from '../../utils/sortAlgo';
 
 const initialState: SortingVisualizerState = {
   title: 'Bubble Sort',
@@ -24,19 +25,9 @@ const sortingVisualizer = (
         array: generateRandomArray(30),
       };
     case SortingVisualizerActionTypes.SORT_ARRAY:
-      const array = state.array;
-      for (let i = array.length; i >= 0; i--) {
-        for (let j = 0; j < i - 1; j++) {
-          if (array[j].item > array[j + 1].item) {
-            let temp = array[j + 1];
-            array[j + 1] = array[j];
-            array[j] = temp;
-          }
-        }
-      }
       return {
         ...state,
-        array,
+        array: bubbleSort(state.array),
       };
     case SortingVisualizerActionTypes.CHANGE_SORTING_SPEED:
       return state;
