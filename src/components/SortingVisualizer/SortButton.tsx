@@ -24,25 +24,49 @@ const SortButton = (): JSX.Element => {
       //   }
       const iLoop = (i: number) => {
         let j = 0;
+        let previouslySortingIndexFirst: number | null = null;
+        let previouslySortingIndexSecond: number | null = null;
         const jLoop = setInterval(() => {
+          const updatedArray = array;
           if (j < i - 1) {
-            const updatedArray = array;
-            if (updatedArray[j].item > array[j + 1].item) {
-              let temp = array[j + 1];
-              array[j + 1] = array[j];
-              array[j] = temp;
+            if (
+              previouslySortingIndexFirst !== null &&
+              previouslySortingIndexSecond !== null
+            ) {
+              updatedArray[previouslySortingIndexFirst].sorting = false;
+              updatedArray[previouslySortingIndexSecond].sorting = false;
             }
+            if (updatedArray[j].item > updatedArray[j + 1].item) {
+              let temp = updatedArray[j + 1];
+              updatedArray[j + 1] = updatedArray[j];
+              updatedArray[j] = temp;
+
+              // set sorting to true & false according to situation
+              updatedArray[j].sorting = true;
+              updatedArray[j + 1].sorting = true;
+              previouslySortingIndexFirst = j;
+              previouslySortingIndexSecond = j + 1;
+            }
+            // update array in every interval
             sortArray(updatedArray);
           } else {
             clearInterval(jLoop);
-            if (i >= 0) {
+            if (i > 0) {
+              if (
+                previouslySortingIndexFirst !== null &&
+                previouslySortingIndexSecond !== null
+              ) {
+                updatedArray[previouslySortingIndexFirst].sorting = false;
+                updatedArray[previouslySortingIndexSecond].sorting = false;
+              }
+              updatedArray[i - 1].sorted = true;
+              sortArray(updatedArray);
               iLoop(i - 1);
             }
           }
           j++;
         }, 50);
       };
-
       iLoop(arraySize);
     }
   };
