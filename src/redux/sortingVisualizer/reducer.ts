@@ -24,7 +24,20 @@ const sortingVisualizer = (
         array: generateRandomArray(30),
       };
     case SortingVisualizerActionTypes.SORT_ARRAY:
-      return state;
+      const array = state.array;
+      for (let i = array.length; i >= 0; i--) {
+        for (let j = 0; j < i - 1; j++) {
+          if (array[j].item > array[j + 1].item) {
+            let temp = array[j + 1];
+            array[j + 1] = array[j];
+            array[j] = temp;
+          }
+        }
+      }
+      return {
+        ...state,
+        array,
+      };
     case SortingVisualizerActionTypes.CHANGE_SORTING_SPEED:
       return state;
     case SortingVisualizerActionTypes.CHANGE_SORTING_ARRAY_SIZE:

@@ -21,7 +21,7 @@ import {useDispatch} from 'react-redux';
 
 const SortingVisualizer = (): JSX.Element => {
   const dispatch = useDispatch();
-  const {generateRandomSortingArray} = bindActionCreators(
+  const {generateRandomSortingArray, sortArray} = bindActionCreators(
     actionCreators,
     dispatch,
   );
@@ -54,7 +54,7 @@ const SortingVisualizer = (): JSX.Element => {
               </Text>
             </TouchableOpacity>
             <Title />
-            <TouchableOpacity style={styles.sortButton}>
+            <TouchableOpacity style={styles.sortButton} onPress={sortArray}>
               <Text style={styles.generateRandomArrayText}>Sort</Text>
             </TouchableOpacity>
           </View>

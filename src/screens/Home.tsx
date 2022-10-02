@@ -21,20 +21,22 @@ const Home: React.FC<HomeProps> = ({navigation}): JSX.Element => {
   }, [navigation]);
 
   return (
-    <SafeAreaView>
+    <>
       <StatusBar backgroundColor="black" />
-      <LinearGradient
-        colors={[
-          constants.styles.colors.secondary1[600],
-          constants.styles.colors.secondary2[800],
-        ]}
-        style={styles.container}>
-        <Image source={constants.app.appIcon} style={styles.appIcon} />
-        <View style={styles.buttonContainer}>
-          <Buttons navigation={navigation} />
-        </View>
-      </LinearGradient>
-    </SafeAreaView>
+      <SafeAreaView>
+        <LinearGradient
+          colors={[
+            constants.styles.colors.secondary1[600],
+            constants.styles.colors.secondary2[800],
+          ]}
+          style={styles.container}>
+          <Image source={constants.app.appIcon} style={styles.appIcon} />
+          <View style={styles.buttonContainer}>
+            <Buttons navigation={navigation} />
+          </View>
+        </LinearGradient>
+      </SafeAreaView>
+    </>
   );
 };
 
