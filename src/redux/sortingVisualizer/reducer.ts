@@ -4,7 +4,6 @@ import {
   SortingVisualizerActionTypes,
 } from './types';
 import generateRandomArray from '../../utils/generateRandomArray';
-import {bubbleSort} from '../../utils/sortAlgo';
 
 const initialState: SortingVisualizerState = {
   title: 'Bubble Sort',
@@ -27,7 +26,7 @@ const sortingVisualizer = (
     case SortingVisualizerActionTypes.SORT_ARRAY:
       return {
         ...state,
-        array: bubbleSort(state.array),
+        array: action.updatedArray,
       };
     case SortingVisualizerActionTypes.CHANGE_SORTING_SPEED:
       return state;

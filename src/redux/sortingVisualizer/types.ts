@@ -28,6 +28,7 @@ export interface GenerateRandomSortingArray {
 
 export interface SortArray {
   type: SortingVisualizerActionTypes.SORT_ARRAY;
+  updatedArray: Array[];
 }
 
 export interface ChangeSortingSpeed {
