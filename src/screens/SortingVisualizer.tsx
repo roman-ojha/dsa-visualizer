@@ -23,7 +23,7 @@ import Menu from '../components/Menu';
 
 const SortingVisualizer = (): JSX.Element => {
   const dispatch = useDispatch();
-  const {generateRandomSortingArray} = bindActionCreators(
+  const {generateRandomSortingArray, menuChangeVisibility} = bindActionCreators(
     actionCreators,
     dispatch,
   );
@@ -35,7 +35,7 @@ const SortingVisualizer = (): JSX.Element => {
   return (
     <SafeAreaView>
       <StatusBar hidden={true} />
-      <Menu isVisible={false} size={300}>
+      <Menu isVisible={false} size={400}>
         <Text>Hello</Text>
       </Menu>
       <LinearGradient
@@ -62,7 +62,11 @@ const SortingVisualizer = (): JSX.Element => {
             <SortButton />
           </View>
         </View>
-        <TouchableOpacity style={styles.editContainer}>
+        <TouchableOpacity
+          style={styles.editContainer}
+          onPress={() => {
+            menuChangeVisibility(true);
+          }}>
           <CustomIcons
             name="arrow-circle"
             color="black"

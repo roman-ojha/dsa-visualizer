@@ -1,8 +1,80 @@
+// import React, {useEffect, useRef, useState} from 'react';
+// import {StyleSheet, View, Text} from 'react-native';
+// import {GestureDetector} from 'react-native-gesture-handler';
+// import Animated, {useAnimatedStyle, withSpring} from 'react-native-reanimated';
+// import {screenConst} from '../constants';
+// // import {useSelector, useDispatch} from 'react-redux';
+// // import {actionCreators, AppState} from '../redux';
+// // import {bindActionCreators} from 'redux';
+
+// interface MenuProps {
+//   isVisible: boolean;
+//   size: number;
+//   children: JSX.Element[] | JSX.Element;
+// }
+
+// const Menu: React.FC<MenuProps> = ({
+//   //   isVisible,
+//   size,
+//   children,
+// }): JSX.Element => {
+//   //   const dispatch = useDispatch();
+//   //   const {isVisible, menuSize} = useSelector(
+//   //     (state: AppState) => state.menuReducer,
+//   //   );
+//   //   const [right, setRight] = useState(-size);
+//   //   const animatedStyle = useAnimatedStyle(() => {
+//   //     return {
+//   //       right: withSpring(right),
+//   //     };
+//   //   });
+//   //   const animatedView = useRef<Animated.View>(null);
+
+//   useEffect(() => {
+//     // if (isVisible) {
+//     //   setRight(0);
+//     // } else {
+//     //   setRight(-size);
+//     // }
+//     return () => {
+//       //   clearTimeout(changeSizeTimeout);
+//     };
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, []);
+//   <>
+//     {/* <GestureDetector>
+//       <Animated.View style={styles.animatedContainer}>{children}</Animated.View>
+//     </GestureDetector> */}
+//     <Text>Hello</Text>
+//   </>;
+// };
+
+// const styles = StyleSheet.create({
+//   animatedContainer: {
+//     // position: 'absolute',
+//     // zIndex: 100,
+//     // backgroundColor: 'white',
+//     // height: screenConst.screenWidth,
+//     // width: 300,
+//     // borderTopLeftRadius: 30,
+//     // borderBottomLeftRadius: 30,
+//     // borderStyle: 'solid',
+//     // borderColor: 'red',
+//     // borderWidth: 1,
+//   },
+// });
+
+// export default Menu;
+
 import React, {useEffect, useRef, useState} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {GestureDetector} from 'react-native-gesture-handler';
 import Animated, {useAnimatedStyle, withSpring} from 'react-native-reanimated';
 import {screenConst} from '../constants';
+import {useSelector, useDispatch} from 'react-redux';
+import {actionCreators, AppState} from '../redux';
+import {bindActionCreators} from 'redux';
+import CustomIcons from './CustomIcons/CustomIcons';
 
 interface MenuProps {
   isVisible: boolean;
@@ -10,69 +82,74 @@ interface MenuProps {
   children: JSX.Element[] | JSX.Element;
 }
 
-const Menu: React.FC<MenuProps> = ({
-  isVisible,
-  size,
-  children,
-}): JSX.Element => {
-  const [state, setState] = useState({
-    isVisible: true,
-    menuSize: 0,
-  });
+const Menu: React.FC<MenuProps> = ({children, size}): JSX.Element => {
+  const dispatch = useDispatch();
+  const [right, setRight] = useState(-size);
+  const {isVisible, menuSize} = useSelector(
+    (state: AppState) => state.menuReducer,
+  );
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      width: withSpring(state.menuSize),
+      right: withSpring(right),
     };
   });
-  const animatedView = useRef<Animated.View>(null);
 
-  const hideMenu = () => {};
+  const {menuChangeVisibility} = bindActionCreators(actionCreators, dispatch);
 
-  //   const changeMenuWidth = setTimeout(() => {
-  //     setState({
-  //       ...state,
-  //       menuSize: size,
-  //     });
-  //   }, 10);
-  console.log('hello');
   useEffect(() => {
-    console.log(animatedView);
-    return () => {
-      //   clearTimeout(changeMenuWidth);
-    };
-  }, [animatedView]);
-  return state.isVisible ? (
+    if (isVisible) {
+      setRight(0);
+    } else {
+      setRight(-size);
+    }
+  }, [isVisible, size]);
+  return (
     <>
       <GestureDetector>
-        <TouchableOpacity style={styles.container} onPress={hideMenu}>
-          <Animated.View
-            style={[styles.animatedContainer, animatedStyle]}
-            ref={animatedView}>
-            {children}
-          </Animated.View>
-        </TouchableOpacity>
+        <Animated.View
+          style={[styles.animatedContainer, {width: size}, animatedStyle]}>
+          <TouchableOpacity
+            style={styles.editContainer}
+            onPress={() => {
+              menuChangeVisibility(false);
+            }}>
+            {/* <Text style={styles.editText}>Close Edit</Text> */}
+            <CustomIcons
+              name="arrow-circle"
+              color="black"
+              size={25}
+              style={styles.editIcon}
+            />
+          </TouchableOpacity>
+          <View style={styles.childrenContainer}>{children}</View>
+        </Animated.View>
       </GestureDetector>
     </>
-  ) : (
-    <></>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  animatedContainer: {
     position: 'absolute',
     zIndex: 100,
-    height: screenConst.screenWidth,
-    width: screenConst.screenHeight,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  },
-  animatedContainer: {
     backgroundColor: 'white',
     height: screenConst.screenWidth,
     borderTopLeftRadius: 30,
     borderBottomLeftRadius: 30,
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  childrenContainer: {},
+  editContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 30,
+  },
+  editIcon: {
+    color: 'black',
+    transform: [{rotate: '-90deg'}],
   },
 });
 

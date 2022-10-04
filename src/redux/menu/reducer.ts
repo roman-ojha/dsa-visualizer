@@ -6,10 +6,7 @@ const initialState: MenuState = {
   menuSize: 0,
 };
 
-const sortingVisualizer = (
-  state: MenuState = initialState,
-  action: MenuAction,
-) => {
+const menuReducer = (state: MenuState = initialState, action: MenuAction) => {
   switch (action.type) {
     case MenuActionTypes.CHANGE_VISIBILITY:
       return {
@@ -26,4 +23,4 @@ const sortingVisualizer = (
   }
 };
 
-export default sortingVisualizer;
+export default menuReducer;
