@@ -73,7 +73,7 @@ const SortButton = (): JSX.Element => {
   return (
     <>
       <TouchableOpacity style={styles.sortButton} onPress={sort}>
-        <Text style={styles.sortButtonText}>Sort</Text>
+        <Text style={styles.button}>Sort</Text>
       </TouchableOpacity>
     </>
   );
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: 100,
   },
-  sortButtonText: {
+  button: {
     color: stylesConst.colors.font[0],
   },
 });
