@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {useEffect} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   StyleSheet,
@@ -35,7 +35,9 @@ const SortingVisualizer = (): JSX.Element => {
   return (
     <SafeAreaView>
       <StatusBar hidden={true} />
-      <Menu />
+      <Menu isVisible={false} size={300}>
+        <Text>Hello</Text>
+      </Menu>
       <LinearGradient
         colors={[
           constants.styles.colors.secondary1[150],

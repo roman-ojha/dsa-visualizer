@@ -1,32 +1,60 @@
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {GestureDetector} from 'react-native-gesture-handler';
 import Animated, {useAnimatedStyle, withSpring} from 'react-native-reanimated';
 import {screenConst} from '../constants';
 
-const Menu = (): JSX.Element => {
-  const [menuWidth, setMenuWidth] = useState(0);
-  const animatedStyle = useAnimatedStyle(() => {
-    return {};
+interface MenuProps {
+  isVisible: boolean;
+  size: number;
+  children: JSX.Element[] | JSX.Element;
+}
+
+const Menu: React.FC<MenuProps> = ({
+  isVisible,
+  size,
+  children,
+}): JSX.Element => {
+  const [state, setState] = useState({
+    isVisible: true,
+    menuSize: 0,
   });
-  useEffect(() => {
-    const changeMenuWidth = setTimeout(() => {
-      setMenuWidth(200);
-    }, 10);
-    return () => {
-      clearTimeout(changeMenuWidth);
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      width: withSpring(state.menuSize),
     };
-  }, []);
-  return (
+  });
+  const animatedView = useRef<Animated.View>(null);
+
+  const hideMenu = () => {};
+
+  //   const changeMenuWidth = setTimeout(() => {
+  //     setState({
+  //       ...state,
+  //       menuSize: size,
+  //     });
+  //   }, 10);
+  console.log('hello');
+  useEffect(() => {
+    console.log(animatedView);
+    return () => {
+      //   clearTimeout(changeMenuWidth);
+    };
+  }, [animatedView]);
+  return state.isVisible ? (
     <>
       <GestureDetector>
-        <View style={styles.container}>
-          <Animated.View style={styles.animatedContainer}>
-            <Text>Hello</Text>
+        <TouchableOpacity style={styles.container} onPress={hideMenu}>
+          <Animated.View
+            style={[styles.animatedContainer, animatedStyle]}
+            ref={animatedView}>
+            {children}
           </Animated.View>
-        </View>
+        </TouchableOpacity>
       </GestureDetector>
     </>
+  ) : (
+    <></>
   );
 };
 
@@ -43,7 +71,8 @@ const styles = StyleSheet.create({
   animatedContainer: {
     backgroundColor: 'white',
     height: screenConst.screenWidth,
-    width: 100,
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
   },
 });
 
