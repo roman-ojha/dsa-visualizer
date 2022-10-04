@@ -19,7 +19,7 @@ import {bindActionCreators} from 'redux';
 import {actionCreators} from '../redux';
 import {useDispatch} from 'react-redux';
 import SortButton from '../components/SortingVisualizer/SortButton';
-import Menu from '../components/Menu';
+import MenuSettings from '../components/SortingVisualizer/MenuSettings';
 
 const SortingVisualizer = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -35,9 +35,7 @@ const SortingVisualizer = (): JSX.Element => {
   return (
     <SafeAreaView>
       <StatusBar hidden={true} />
-      <Menu size={300}>
-        <Text>Hello</Text>
-      </Menu>
+      <MenuSettings />
       <LinearGradient
         colors={[
           constants.styles.colors.secondary1[150],

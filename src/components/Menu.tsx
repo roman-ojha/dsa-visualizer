@@ -49,7 +49,6 @@ const Menu: React.FC<MenuProps> = ({children, size}): JSX.Element => {
             onPress={() => {
               menuChangeVisibility(false);
             }}>
-            {/* <Text style={styles.editText}>Close Edit</Text> */}
             <CustomIcons
               name="arrow-circle"
               color="black"
@@ -68,14 +67,17 @@ const styles = StyleSheet.create({
   animatedContainer: {
     position: 'absolute',
     zIndex: 100,
-    backgroundColor: 'white',
+    backgroundColor: '#0D0D0D',
     height: screenConst.screenWidth,
     borderTopLeftRadius: 30,
     borderBottomLeftRadius: 30,
     display: 'flex',
     flexDirection: 'row',
   },
-  childrenContainer: {},
+  childrenContainer: {
+    paddingTop: 15,
+    paddingBottom: 15,
+  },
   editContainer: {
     display: 'flex',
     flexDirection: 'row',
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
     width: 30,
   },
   editIcon: {
-    color: 'black',
+    color: 'white',
     transform: [{rotate: '-90deg'}],
   },
 });
