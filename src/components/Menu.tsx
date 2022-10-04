@@ -1,75 +1,11 @@
-// import React, {useEffect, useRef, useState} from 'react';
-// import {StyleSheet, View, Text} from 'react-native';
-// import {GestureDetector} from 'react-native-gesture-handler';
-// import Animated, {useAnimatedStyle, withSpring} from 'react-native-reanimated';
-// import {screenConst} from '../constants';
-// // import {useSelector, useDispatch} from 'react-redux';
-// // import {actionCreators, AppState} from '../redux';
-// // import {bindActionCreators} from 'redux';
-
-// interface MenuProps {
-//   isVisible: boolean;
-//   size: number;
-//   children: JSX.Element[] | JSX.Element;
-// }
-
-// const Menu: React.FC<MenuProps> = ({
-//   //   isVisible,
-//   size,
-//   children,
-// }): JSX.Element => {
-//   //   const dispatch = useDispatch();
-//   //   const {isVisible, menuSize} = useSelector(
-//   //     (state: AppState) => state.menuReducer,
-//   //   );
-//   //   const [right, setRight] = useState(-size);
-//   //   const animatedStyle = useAnimatedStyle(() => {
-//   //     return {
-//   //       right: withSpring(right),
-//   //     };
-//   //   });
-//   //   const animatedView = useRef<Animated.View>(null);
-
-//   useEffect(() => {
-//     // if (isVisible) {
-//     //   setRight(0);
-//     // } else {
-//     //   setRight(-size);
-//     // }
-//     return () => {
-//       //   clearTimeout(changeSizeTimeout);
-//     };
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, []);
-//   <>
-//     {/* <GestureDetector>
-//       <Animated.View style={styles.animatedContainer}>{children}</Animated.View>
-//     </GestureDetector> */}
-//     <Text>Hello</Text>
-//   </>;
-// };
-
-// const styles = StyleSheet.create({
-//   animatedContainer: {
-//     // position: 'absolute',
-//     // zIndex: 100,
-//     // backgroundColor: 'white',
-//     // height: screenConst.screenWidth,
-//     // width: 300,
-//     // borderTopLeftRadius: 30,
-//     // borderBottomLeftRadius: 30,
-//     // borderStyle: 'solid',
-//     // borderColor: 'red',
-//     // borderWidth: 1,
-//   },
-// });
-
-// export default Menu;
-
-import React, {useEffect, useRef, useState} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import {GestureDetector} from 'react-native-gesture-handler';
-import Animated, {useAnimatedStyle, withSpring} from 'react-native-reanimated';
+import Animated, {
+  useAnimatedStyle,
+  withTiming,
+  Easing,
+} from 'react-native-reanimated';
 import {screenConst} from '../constants';
 import {useSelector, useDispatch} from 'react-redux';
 import {actionCreators, AppState} from '../redux';
@@ -77,7 +13,6 @@ import {bindActionCreators} from 'redux';
 import CustomIcons from './CustomIcons/CustomIcons';
 
 interface MenuProps {
-  isVisible: boolean;
   size: number;
   children: JSX.Element[] | JSX.Element;
 }
@@ -85,12 +20,13 @@ interface MenuProps {
 const Menu: React.FC<MenuProps> = ({children, size}): JSX.Element => {
   const dispatch = useDispatch();
   const [right, setRight] = useState(-size);
-  const {isVisible, menuSize} = useSelector(
-    (state: AppState) => state.menuReducer,
-  );
+  const {isVisible} = useSelector((state: AppState) => state.menuReducer);
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      right: withSpring(right),
+      right: withTiming(right, {
+        duration: 500,
+        easing: Easing.out(Easing.exp),
+      }),
     };
   });
 

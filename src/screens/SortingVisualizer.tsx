@@ -35,7 +35,7 @@ const SortingVisualizer = (): JSX.Element => {
   return (
     <SafeAreaView>
       <StatusBar hidden={true} />
-      <Menu isVisible={false} size={400}>
+      <Menu size={300}>
         <Text>Hello</Text>
       </Menu>
       <LinearGradient
