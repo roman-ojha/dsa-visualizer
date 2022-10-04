@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   StyleSheet,
@@ -19,6 +19,7 @@ import {bindActionCreators} from 'redux';
 import {actionCreators} from '../redux';
 import {useDispatch} from 'react-redux';
 import SortButton from '../components/SortingVisualizer/SortButton';
+import Menu from '../components/Menu';
 
 const SortingVisualizer = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const SortingVisualizer = (): JSX.Element => {
   return (
     <SafeAreaView>
       <StatusBar hidden={true} />
+      <Menu />
       <LinearGradient
         colors={[
           constants.styles.colors.secondary1[150],
@@ -81,6 +83,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: screenConst.screenHeight,
     height: screenConst.screenWidth,
+    zIndex: 1,
   },
   header: {
     height: screenConst.screenWidth,
