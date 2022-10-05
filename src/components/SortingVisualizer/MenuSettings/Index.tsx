@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import Menu from '../Menu';
+import Menu from '../../Menu';
 import RNPickerSelect, {Item} from 'react-native-picker-select';
-import {SortingVisualizerState} from '../../redux/sortingVisualizer/types';
-import {screenConst} from '../../constants';
-import {actionCreators, AppState} from '../../redux';
+import {SortingVisualizerState} from '../../../redux/sortingVisualizer/types';
+import {screenConst} from '../../../constants';
+import {actionCreators, AppState} from '../../../redux';
 import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import SpeedRange from './SpeedRange';
@@ -70,9 +70,7 @@ const MenuSettings = (): JSX.Element => {
               }}
             />
           </View>
-          <View style={styles.rangeSliderContainer}>
-            <SpeedRange />
-          </View>
+          <SpeedRange />
         </View>
       </Menu>
     </>

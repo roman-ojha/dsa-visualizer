@@ -1,13 +1,13 @@
 import React, {useCallback} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import RangeSlider from 'rn-range-slider';
-import SelectedRail from '../RangeSlider/SelectedRail';
-import Rail from '../RangeSlider/Rail';
-import Thumb from '../RangeSlider/Thumb';
-import {SortingVisualizerState} from '../../redux/sortingVisualizer/types';
-import {actionCreators, AppState} from '../../redux';
+import SelectedRail from '../../RangeSlider/SelectedRail';
+import Rail from '../../RangeSlider/Rail';
+import Thumb from '../../RangeSlider/Thumb';
+import {SortingVisualizerState} from '../../../redux/sortingVisualizer/types';
+import {actionCreators, AppState} from '../../../redux';
 import {useSelector, useDispatch} from 'react-redux';
-import Notch from '../RangeSlider/Notch';
+import Notch from '../../RangeSlider/Notch';
 import {bindActionCreators} from 'redux';
 
 const SpeedRange = (): JSX.Element => {

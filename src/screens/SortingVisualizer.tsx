@@ -19,7 +19,7 @@ import {bindActionCreators} from 'redux';
 import {actionCreators} from '../redux';
 import {useDispatch} from 'react-redux';
 import SortButton from '../components/SortingVisualizer/SortButton';
-import MenuSettings from '../components/SortingVisualizer/MenuSettings';
+import MenuSettings from '../components/SortingVisualizer/MenuSettings/Index';
 
 const SortingVisualizer = (): JSX.Element => {
   const dispatch = useDispatch();
