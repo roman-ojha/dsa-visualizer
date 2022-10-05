@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 
-const Notch: React.FC<{speed: number}> = ({speed}): JSX.Element => {
+const Notch: React.FC<{payload: number}> = ({payload}): JSX.Element => {
   return (
     <>
-      <Text style={styles.text}>{speed}</Text>
+      <Text style={styles.text}>{payload}</Text>
     </>
   );
 };

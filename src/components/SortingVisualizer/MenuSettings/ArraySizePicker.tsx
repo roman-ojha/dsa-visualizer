@@ -10,29 +10,29 @@ import {useSelector, useDispatch} from 'react-redux';
 import Notch from '../../RangeSlider/Notch';
 import {bindActionCreators} from 'redux';
 
-const SpeedRange = (): JSX.Element => {
+const ArraySizePicker = (): JSX.Element => {
   const dispatch = useDispatch();
-  const min: SortingVisualizerState['speed'] = 10;
-  const max: SortingVisualizerState['speed'] = 100;
-  const step = 20 - 10;
-  const {speed} = useSelector((state: AppState) => state.sortingVisualizer);
-  const {changeSortingSpeed} = bindActionCreators(actionCreators, dispatch);
+  const min: number = 10;
+  const {arraySize, maximumArraySize} = useSelector(
+    (state: AppState) => state.sortingVisualizer,
+  );
+  const {changeSortingArraySize} = bindActionCreators(actionCreators, dispatch);
   return (
     <>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>Speed: </Text>
-          <Text style={styles.speedText}>{speed}</Text>
+          <Text style={styles.title}>Array Size: </Text>
+          <Text style={styles.speedText}>{arraySize}</Text>
         </View>
         <View style={styles.rangeContainer}>
           <Text style={styles.minText}>{min}</Text>
           <RangeSlider
             min={min}
-            max={max}
-            step={step}
+            max={maximumArraySize}
+            step={1}
             disableRange
             floatingLabel={true}
-            low={speed}
+            low={arraySize}
             style={styles.speedRangeContainer}
             renderThumb={useCallback(
               () => (
@@ -54,18 +54,18 @@ const SpeedRange = (): JSX.Element => {
             )}
             renderNotch={useCallback(
               () => (
-                <Notch payload={speed} />
+                <Notch payload={arraySize} />
               ),
-              [speed],
+              [arraySize],
             )}
             onValueChanged={low => {
-              const sortingSpeed = low as SortingVisualizerState['speed'];
-              if (sortingSpeed !== speed) {
-                changeSortingSpeed(sortingSpeed);
+              const sortingArraySize = low as SortingVisualizerState['speed'];
+              if (sortingArraySize !== arraySize) {
+                changeSortingArraySize(sortingArraySize);
               }
             }}
           />
-          <Text style={styles.maxText}>{max}</Text>
+          <Text style={styles.maxText}>{maximumArraySize}</Text>
         </View>
       </View>
     </>
@@ -112,4 +112,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SpeedRange;
+export default ArraySizePicker;

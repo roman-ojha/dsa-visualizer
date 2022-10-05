@@ -4,6 +4,7 @@ import Menu from '../../Menu';
 import {screenConst} from '../../../constants';
 import SpeedRange from './SpeedRange';
 import AlgorithmPicker from './AlgorithmPicker';
+import ArraySizePicker from './ArraySizePicker';
 
 const MenuSettings = (): JSX.Element => {
   const containerSize = 300;
@@ -13,6 +14,7 @@ const MenuSettings = (): JSX.Element => {
         <View style={[{width: containerSize - 40}, styles.container]}>
           <AlgorithmPicker />
           <SpeedRange />
+          <ArraySizePicker />
         </View>
       </Menu>
     </>

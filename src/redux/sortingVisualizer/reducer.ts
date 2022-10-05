@@ -8,6 +8,7 @@ import generateRandomArray from '../../utils/generateRandomArray';
 const initialState: SortingVisualizerState = {
   title: 'Bubble Sort',
   arraySize: 30,
+  maximumArraySize: 100,
   array: generateRandomArray(30),
   sortingAlgorithm: 'bubble',
   speed: 50,
