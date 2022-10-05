@@ -22,5 +22,9 @@ export default {
       0: '#ffffff',
       // white
     },
+    button: {
+      before: 'black',
+      after: '#4d4d4d',
+    },
   },
 };

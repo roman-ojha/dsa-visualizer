@@ -11,7 +11,6 @@ import {
 import constants, {screenConst, stylesConst} from '../constants';
 import {mixins} from '../styles';
 import SortingField from '../components/SortingVisualizer/SortingField';
-import CustomIcons from '../components/CustomIcons/CustomIcons';
 import Orientation from 'react-native-orientation-locker';
 import VisualizerAppIcon from '../components/VisualizerAppIcon';
 import Title from '../components/SortingVisualizer/Title';
@@ -20,10 +19,11 @@ import {actionCreators} from '../redux';
 import {useDispatch} from 'react-redux';
 import SortButton from '../components/SortingVisualizer/SortButton';
 import MenuSettings from '../components/SortingVisualizer/MenuSettings/Index';
+import EditButton from '../components/SortingVisualizer/EditButton';
 
 const SortingVisualizer = (): JSX.Element => {
   const dispatch = useDispatch();
-  const {generateRandomSortingArray, menuChangeVisibility} = bindActionCreators(
+  const {generateRandomSortingArray} = bindActionCreators(
     actionCreators,
     dispatch,
   );
@@ -60,19 +60,7 @@ const SortingVisualizer = (): JSX.Element => {
             <SortButton />
           </View>
         </View>
-        <TouchableOpacity
-          style={styles.editContainer}
-          onPress={() => {
-            menuChangeVisibility(true);
-          }}>
-          <CustomIcons
-            name="arrow-circle"
-            color="black"
-            size={25}
-            style={styles.editIcon}
-          />
-          <Text style={styles.editText}>Edit</Text>
-        </TouchableOpacity>
+        <EditButton />
       </LinearGradient>
     </SafeAreaView>
   );
@@ -94,21 +82,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-  },
-  editContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  editIcon: {
-    color: 'black',
-    transform: [{rotate: '90deg'}],
-  },
-  editText: {
-    fontSize: 20,
-    color: 'black',
-    transform: [{rotate: '-90deg'}],
   },
   middleContainer: {
     display: 'flex',

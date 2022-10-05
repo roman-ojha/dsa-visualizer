@@ -110,26 +110,14 @@ const SortButton = (): JSX.Element => {
       <TouchableOpacity
         style={styles.sortButton}
         onPress={() => {
-          // if (status === 'started&&sorting') {
-          //   changeSortingStatus('started&&pause');
-          // }
-          // if (status === 'init||finished' || status === 'started&&pause') {
-          //   changeSortingStatus('started&&sorting');
-          //   sort();
-          // }
           if (status === 'init||finished') {
             changeSortingStatus('started&&sorting');
             sort();
           }
         }}>
         <Text style={styles.button}>
-          {/* {status === 'started&&sorting'
-            ? 'Pause'
-            : status === 'started&&pause'
-            ? 'Start'
-            : 'Sort'} */}
           {status === 'started&&sorting'
-            ? 'Stop'
+            ? 'Sorting'
             : status === 'init||finished'
             ? 'Sort'
             : ''}
