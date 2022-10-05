@@ -9,6 +9,9 @@ import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import RangeSlider from 'rn-range-slider';
+import SelectedRail from '../RangeSlider/SelectedRail';
+import Rail from '../RangeSlider/Rail';
+import Thumb from '../RangeSlider/Thumb';
 
 interface ItemInterface extends Item {
   label: SortingVisualizerState['title'];
@@ -78,8 +81,9 @@ const MenuSettings = (): JSX.Element => {
               min={10}
               max={100}
               vertical={true}
+              step={10}
               containerStyle={{
-                height: 200,
+                height: 30,
                 // width: 50,
                 borderStyle: 'solid',
                 borderWidth: 1,
@@ -89,6 +93,16 @@ const MenuSettings = (): JSX.Element => {
                 height: 10,
                 backgroundColor: 'white',
                 width: 50,
+                borderStyle: 'solid',
+                borderWidth: 1,
+                borderColor: 'red',
+              }}
+              markerStyle={{
+                borderStyle: 'solid',
+                borderWidth: 1,
+                borderColor: 'yellow',
+                height: 30,
+                width: 30,
               }}
             /> */}
             <RangeSlider
@@ -96,45 +110,24 @@ const MenuSettings = (): JSX.Element => {
               max={100}
               step={10}
               disableRange
-              style={{
-                borderStyle: 'solid',
-                borderWidth: 1,
-                borderColor: 'red',
-                width: 150,
-                // transform: [{rotate: '-90deg'}],
-              }}
+              floatingLabel={true}
+              low={50}
+              style={styles.speedRangeContainer}
               renderThumb={useCallback(
                 () => (
-                  <>
-                    <View
-                      style={{
-                        backgroundColor: stylesConst.colors.primary['1000'],
-                        width: 20,
-                        height: 20,
-                        borderRadius: 5,
-                      }}></View>
-                  </>
+                  <Thumb />
                 ),
                 [],
               )}
               renderRail={useCallback(
                 () => (
-                  <>
-                    <View
-                      style={{
-                        backgroundColor: 'white',
-                        width: 130,
-                        height: 8,
-                      }}></View>
-                  </>
+                  <Rail />
                 ),
                 [],
               )}
               renderRailSelected={useCallback(
                 () => (
-                  <>
-                    <Text>Thumb</Text>
-                  </>
+                  <SelectedRail />
                 ),
                 [],
               )}
@@ -170,6 +163,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  speedRangeContainer: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'red',
+    width: 150,
   },
 });
 
