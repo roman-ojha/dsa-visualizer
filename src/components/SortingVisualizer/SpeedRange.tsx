@@ -1,0 +1,102 @@
+import React, {useCallback} from 'react';
+import {StyleSheet, View, Text} from 'react-native';
+import RangeSlider from 'rn-range-slider';
+import SelectedRail from '../RangeSlider/SelectedRail';
+import Rail from '../RangeSlider/Rail';
+import Thumb from '../RangeSlider/Thumb';
+import {SortingVisualizerState} from '../../redux/sortingVisualizer/types';
+import {actionCreators, AppState} from '../../redux';
+import {useSelector, useDispatch} from 'react-redux';
+import Notch from '../RangeSlider/Notch';
+import {bindActionCreators} from 'redux';
+
+const SpeedRange = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const min: SortingVisualizerState['speed'] = 10;
+  const max: SortingVisualizerState['speed'] = 100;
+  const step = 20 - 10;
+  const {speed} = useSelector((state: AppState) => state.sortingVisualizer);
+  const {changeSortingSpeed} = bindActionCreators(actionCreators, dispatch);
+  return (
+    <>
+      <View style={styles.container}>
+        <Text style={styles.title}>Speed: </Text>
+        <View style={styles.rangeContainer}>
+          <Text style={styles.minText}>{min}</Text>
+          <RangeSlider
+            min={min}
+            max={max}
+            step={step}
+            disableRange
+            floatingLabel={true}
+            low={speed}
+            style={styles.speedRangeContainer}
+            renderThumb={useCallback(
+              () => (
+                <Thumb />
+              ),
+              [],
+            )}
+            renderRail={useCallback(
+              () => (
+                <Rail />
+              ),
+              [],
+            )}
+            renderRailSelected={useCallback(
+              () => (
+                <SelectedRail />
+              ),
+              [],
+            )}
+            renderNotch={useCallback(
+              () => (
+                <Notch speed={speed} />
+              ),
+              [speed],
+            )}
+            onValueChanged={low => {
+              const sortingSpeed = low as SortingVisualizerState['speed'];
+              if (sortingSpeed !== speed) {
+                changeSortingSpeed(sortingSpeed);
+              }
+            }}
+          />
+          <Text style={styles.maxText}>{max}</Text>
+        </View>
+      </View>
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    alignSelf: 'stretch',
+  },
+  rangeContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 8,
+    padding: 10,
+  },
+  speedRangeContainer: {
+    width: 150,
+  },
+  title: {
+    color: 'white',
+    marginBottom: 10,
+  },
+  minText: {
+    color: 'white',
+  },
+  maxText: {
+    color: 'white',
+  },
+});
+
+export default SpeedRange;

@@ -29,7 +29,10 @@ const sortingVisualizer = (
         array: action.updatedArray,
       };
     case SortingVisualizerActionTypes.CHANGE_SORTING_SPEED:
-      return state;
+      return {
+        ...state,
+        speed: action.payload,
+      };
     case SortingVisualizerActionTypes.CHANGE_SORTING_ARRAY_SIZE:
       return state;
     case SortingVisualizerActionTypes.CHANGE_SORTING_ALGORITHM:

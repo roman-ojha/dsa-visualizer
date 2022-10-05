@@ -1,17 +1,13 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import Menu from '../Menu';
 import RNPickerSelect, {Item} from 'react-native-picker-select';
 import {SortingVisualizerState} from '../../redux/sortingVisualizer/types';
-import {screenConst, stylesConst} from '../../constants';
+import {screenConst} from '../../constants';
 import {actionCreators, AppState} from '../../redux';
 import {useSelector, useDispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import MultiSlider from '@ptomasroos/react-native-multi-slider';
-import RangeSlider from 'rn-range-slider';
-import SelectedRail from '../RangeSlider/SelectedRail';
-import Rail from '../RangeSlider/Rail';
-import Thumb from '../RangeSlider/Thumb';
+import SpeedRange from './SpeedRange';
 
 interface ItemInterface extends Item {
   label: SortingVisualizerState['title'];
@@ -77,61 +73,7 @@ const MenuSettings = (): JSX.Element => {
             />
           </View>
           <View style={styles.rangeSliderContainer}>
-            {/* <MultiSlider
-              min={10}
-              max={100}
-              vertical={true}
-              step={10}
-              containerStyle={{
-                height: 30,
-                // width: 50,
-                borderStyle: 'solid',
-                borderWidth: 1,
-                borderColor: 'green',
-              }}
-              trackStyle={{
-                height: 10,
-                backgroundColor: 'white',
-                width: 50,
-                borderStyle: 'solid',
-                borderWidth: 1,
-                borderColor: 'red',
-              }}
-              markerStyle={{
-                borderStyle: 'solid',
-                borderWidth: 1,
-                borderColor: 'yellow',
-                height: 30,
-                width: 30,
-              }}
-            /> */}
-            <RangeSlider
-              min={10}
-              max={100}
-              step={10}
-              disableRange
-              floatingLabel={true}
-              low={50}
-              style={styles.speedRangeContainer}
-              renderThumb={useCallback(
-                () => (
-                  <Thumb />
-                ),
-                [],
-              )}
-              renderRail={useCallback(
-                () => (
-                  <Rail />
-                ),
-                [],
-              )}
-              renderRailSelected={useCallback(
-                () => (
-                  <SelectedRail />
-                ),
-                [],
-              )}
-            />
+            <SpeedRange />
           </View>
         </View>
       </Menu>
@@ -143,9 +85,6 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
     height: screenConst.screenWidth - 25,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'red',
   },
   choseAlgorithmContainer: {
     display: 'flex',
@@ -156,19 +95,14 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   rangeSliderContainer: {
+    height: screenConst.screenWidth - 200,
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 10,
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'green',
-    height: screenConst.screenWidth - 200,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  speedRangeContainer: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'red',
-    width: 150,
   },
 });
 
