@@ -24,13 +24,17 @@ const SortingField = (): JSX.Element => {
                 ? {backgroundColor: stylesConst.colors.secondary2['800']}
                 : {backgroundColor: stylesConst.colors.primary['1000']},
               arraySize > 40 && arraySize <= 50
-                ? {width: 10}
+                ? // eslint-disable-next-line react-native/no-inline-styles
+                  {width: 10}
                 : arraySize > 50 && arraySize <= 60
-                ? {width: 9}
+                ? // eslint-disable-next-line react-native/no-inline-styles
+                  {width: 9}
                 : arraySize > 60 && arraySize <= 70
-                ? {width: 7}
+                ? // eslint-disable-next-line react-native/no-inline-styles
+                  {width: 7}
                 : arraySize > 70 && arraySize <= 80
-                ? {width: 6}
+                ? // eslint-disable-next-line react-native/no-inline-styles
+                  {width: 6}
                 : {},
             ]}>
             {arraySize <= 40 ? (
@@ -39,11 +43,14 @@ const SortingField = (): JSX.Element => {
                   styles.itemNumber,
 
                   arraySize >= 10 && arraySize <= 25
-                    ? {fontSize: 15}
+                    ? // eslint-disable-next-line react-native/no-inline-styles
+                      {fontSize: 15}
                     : arraySize >= 25 && arraySize <= 30
-                    ? {fontSize: 13}
+                    ? // eslint-disable-next-line react-native/no-inline-styles
+                      {fontSize: 13}
                     : arraySize >= 30 && arraySize <= 40
-                    ? {fontSize: 8}
+                    ? // eslint-disable-next-line react-native/no-inline-styles
+                      {fontSize: 8}
                     : {},
                 ]}>
                 {elm.item}

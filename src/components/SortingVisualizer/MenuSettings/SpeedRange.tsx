@@ -12,9 +12,9 @@ import {bindActionCreators} from 'redux';
 
 const SpeedRange = (): JSX.Element => {
   const dispatch = useDispatch();
-  const min: SortingVisualizerState['speed'] = 10;
-  const max: SortingVisualizerState['speed'] = 100;
-  const step = 20 - 10;
+  const min: SortingVisualizerState['speed'] = 0;
+  const max: SortingVisualizerState['speed'] = 1000;
+  const step = 100;
   const {speed} = useSelector((state: AppState) => state.sortingVisualizer);
   const {changeSortingSpeed} = bindActionCreators(actionCreators, dispatch);
   return (
@@ -22,10 +22,10 @@ const SpeedRange = (): JSX.Element => {
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>Speed: </Text>
-          <Text style={styles.speedText}>{speed}</Text>
+          <Text style={styles.speedText}>{speed}ms</Text>
         </View>
         <View style={styles.rangeContainer}>
-          <Text style={styles.minText}>{min}</Text>
+          <Text style={styles.minText}>{min}ms</Text>
           <RangeSlider
             min={min}
             max={max}
@@ -65,7 +65,7 @@ const SpeedRange = (): JSX.Element => {
               }
             }}
           />
-          <Text style={styles.maxText}>{max}</Text>
+          <Text style={styles.maxText}>{max}ms</Text>
         </View>
       </View>
     </>
