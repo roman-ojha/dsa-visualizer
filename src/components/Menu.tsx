@@ -10,7 +10,7 @@ import {screenConst} from '../constants';
 import {useSelector, useDispatch} from 'react-redux';
 import {actionCreators, AppState} from '../redux';
 import {bindActionCreators} from 'redux';
-import CustomIcons from './CustomIcons/CustomIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 interface MenuProps {
   size: number;
@@ -45,15 +45,14 @@ const Menu: React.FC<MenuProps> = ({children, size}): JSX.Element => {
         <Animated.View
           style={[styles.animatedContainer, {width: size}, animatedStyle]}>
           <TouchableOpacity
-            style={styles.editContainer}
+            style={styles.closeMenuContainer}
             onPress={() => {
               menuChangeVisibility(false);
             }}>
-            <CustomIcons
-              name="arrow-circle"
-              color="black"
+            <MaterialIcons
+              name="keyboard-arrow-right"
+              color="white"
               size={25}
-              style={styles.editIcon}
             />
           </TouchableOpacity>
           <View style={styles.childrenContainer}>{children}</View>
@@ -78,16 +77,14 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
   },
-  editContainer: {
+  closeMenuContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 30,
-  },
-  editIcon: {
-    color: 'white',
-    transform: [{rotate: '-90deg'}],
+    width: 25,
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
   },
 });
 
