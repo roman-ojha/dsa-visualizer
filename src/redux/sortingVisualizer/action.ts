@@ -52,3 +52,14 @@ export const changeSortingAlgorithm = (
     });
   };
 };
+
+export const changeSortingStatus = (
+  status: SortingVisualizerState['status'],
+) => {
+  return (dispatch: Dispatch<SortingVisualizerAction>) => {
+    dispatch({
+      type: SortingVisualizerActionTypes.CHANGE_SORTING_STATUS,
+      status: status,
+    });
+  };
+};

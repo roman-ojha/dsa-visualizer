@@ -14,6 +14,7 @@ export interface SortingVisualizerState {
   sortingAlgorithm: 'bubble' | 'insertion' | 'quick' | 'merge';
   array: Array[];
   speed: 0 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000;
+  status: 'started&&sorting' | 'started&&pause' | 'init||finished';
 }
 
 export enum SortingVisualizerActionTypes {
@@ -22,6 +23,7 @@ export enum SortingVisualizerActionTypes {
   CHANGE_SORTING_SPEED = 'CHANGE_SORTING_SPEED',
   CHANGE_SORTING_ARRAY_SIZE = 'CHANGE_SORTING_ARRAY_SIZE',
   CHANGE_SORTING_ALGORITHM = 'CHANGE_SORTING_ALGORITHM',
+  CHANGE_SORTING_STATUS = 'CHANGE_SORTING_STATUS',
 }
 
 export interface GenerateRandomSortingArray {
@@ -48,9 +50,15 @@ export interface ChangeSortingAlgorithm {
   payload: SortingVisualizerState['sortingAlgorithm'];
 }
 
+export interface ChangeSortingStatus {
+  type: SortingVisualizerActionTypes.CHANGE_SORTING_STATUS;
+  status: SortingVisualizerState['status'];
+}
+
 export type SortingVisualizerAction =
   | GenerateRandomSortingArray
   | SortArray
   | ChangeSortingSpeed
   | ChangeSortingArraySize
-  | ChangeSortingAlgorithm;
+  | ChangeSortingAlgorithm
+  | ChangeSortingStatus;

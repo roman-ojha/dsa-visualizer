@@ -12,7 +12,8 @@ const initialState: SortingVisualizerState = {
   arraySize: initialSortingArraySize,
   array: generateRandomArray(initialSortingArraySize),
   sortingAlgorithm: 'bubble',
-  speed: 100,
+  speed: 0,
+  status: 'init||finished',
 };
 
 const sortingVisualizer = (
@@ -48,28 +49,37 @@ const sortingVisualizer = (
             ...state,
             title: 'Bubble Sort',
             sortingAlgorithm: action.payload,
+            array: generateRandomArray(state.arraySize),
           };
         case 'insertion':
           return {
             ...state,
             title: 'Insertion Sort',
             sortingAlgorithm: action.payload,
+            array: generateRandomArray(state.arraySize),
           };
         case 'merge':
           return {
             ...state,
             title: 'Merge Sort',
             sortingAlgorithm: action.payload,
+            array: generateRandomArray(state.arraySize),
           };
         case 'quick':
           return {
             ...state,
             title: 'Quick Sort',
             sortingAlgorithm: action.payload,
+            array: generateRandomArray(state.arraySize),
           };
         default:
           return state;
       }
+    case SortingVisualizerActionTypes.CHANGE_SORTING_STATUS:
+      return {
+        ...state,
+        status: action.status,
+      };
     default:
       return state;
   }

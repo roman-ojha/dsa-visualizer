@@ -2,7 +2,7 @@ export default {
   colors: {
     primary: {
       700: '#c183ffB3',
-      1000: '#b282ffea',
+      1000: '#b282ffff',
     },
     secondary1: {
       600: '#FF7B4A99',
