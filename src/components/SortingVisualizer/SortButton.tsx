@@ -108,7 +108,13 @@ const SortButton = (): JSX.Element => {
   return (
     <>
       <TouchableOpacity
-        style={styles.sortButton}
+        style={[
+          styles.sortButton,
+          // status === 'started&&sorting'
+          //   ? {backgroundColor: stylesConst.colors.button.after}
+          //   : {backgroundColor: stylesConst.colors.button.before},
+        ]}
+        disabled={status === 'started&&sorting' ? true : false}
         onPress={() => {
           if (status === 'init||finished') {
             changeSortingStatus('started&&sorting');
@@ -133,9 +139,9 @@ const styles = StyleSheet.create({
     right: 0,
     display: 'flex',
     justifyContent: 'center',
+    backgroundColor: 'black',
     alignItems: 'center',
     padding: 10,
-    backgroundColor: '#212121',
     borderRadius: 10,
     width: 100,
   },

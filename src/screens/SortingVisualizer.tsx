@@ -1,33 +1,18 @@
 import React, {useEffect} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {
-  StyleSheet,
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, SafeAreaView, View, StatusBar} from 'react-native';
 import constants, {screenConst, stylesConst} from '../constants';
 import {mixins} from '../styles';
 import SortingField from '../components/SortingVisualizer/SortingField';
 import Orientation from 'react-native-orientation-locker';
 import VisualizerAppIcon from '../components/VisualizerAppIcon';
 import Title from '../components/SortingVisualizer/Title';
-import {bindActionCreators} from 'redux';
-import {actionCreators} from '../redux';
-import {useDispatch} from 'react-redux';
 import SortButton from '../components/SortingVisualizer/SortButton';
 import MenuSettings from '../components/SortingVisualizer/MenuSettings/Index';
 import EditButton from '../components/SortingVisualizer/EditButton';
+import GenerateRandomArrayButton from '../components/SortingVisualizer/GenerateRandomArrayButton';
 
 const SortingVisualizer = (): JSX.Element => {
-  const dispatch = useDispatch();
-  const {generateRandomSortingArray} = bindActionCreators(
-    actionCreators,
-    dispatch,
-  );
-
   useEffect(() => {
     Orientation.lockToLandscape();
   }, []);
@@ -49,13 +34,7 @@ const SortingVisualizer = (): JSX.Element => {
           <View style={styles.voidContainer} />
           <SortingField />
           <View style={styles.titleAndRandomArrayButtonContainer}>
-            <TouchableOpacity
-              style={styles.generateRandomArrayButton}
-              onPress={generateRandomSortingArray}>
-              <Text style={styles.generateRandomArrayText}>
-                Generate Random Array
-              </Text>
-            </TouchableOpacity>
+            <GenerateRandomArrayButton />
             <Title />
             <SortButton />
           </View>
@@ -103,16 +82,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginTop: 20,
     height: 50,
-  },
-  generateRandomArrayButton: {
-    position: 'absolute',
-    left: 0,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#212121',
-    borderRadius: 10,
   },
   generateRandomArrayText: {
     color: stylesConst.colors.font[0],

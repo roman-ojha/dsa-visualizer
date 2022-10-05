@@ -3,7 +3,6 @@ import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import CustomIcons from '../../components/CustomIcons/CustomIcons';
-import {stylesConst} from '../../constants';
 import {actionCreators, AppState} from '../../redux';
 
 const EditButton = (): JSX.Element => {
@@ -16,6 +15,7 @@ const EditButton = (): JSX.Element => {
     <>
       <TouchableOpacity
         style={styles.container}
+        disabled={status === 'started&&sorting' ? true : false}
         onPress={() => {
           if (status === 'init||finished') {
             menuChangeVisibility(true);
@@ -23,11 +23,7 @@ const EditButton = (): JSX.Element => {
         }}>
         <CustomIcons
           name="arrow-circle"
-          color={
-            status === 'started&&sorting'
-              ? stylesConst.colors.button.after
-              : stylesConst.colors.button.before
-          }
+          color="black"
           size={25}
           style={styles.icon}
         />
