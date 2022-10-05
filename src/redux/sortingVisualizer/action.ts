@@ -63,3 +63,12 @@ export const changeSortingStatus = (
     });
   };
 };
+
+export const changeSortingOrder = (order: SortingVisualizerState['order']) => {
+  return (dispatch: Dispatch<SortingVisualizerAction>) => {
+    dispatch({
+      type: SortingVisualizerActionTypes.CHANGE_SORTING_ORDER,
+      order,
+    });
+  };
+};

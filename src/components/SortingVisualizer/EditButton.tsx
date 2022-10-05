@@ -15,7 +15,7 @@ const EditButton = (): JSX.Element => {
     <>
       <TouchableOpacity
         style={styles.container}
-        disabled={status === 'started&&sorting' ? true : false}
+        disabled={status === 'init||finished' ? false : true}
         onPress={() => {
           if (status === 'init||finished') {
             menuChangeVisibility(true);

@@ -14,6 +14,7 @@ const initialState: SortingVisualizerState = {
   sortingAlgorithm: 'bubble',
   speed: 0,
   status: 'init||finished',
+  order: 'ascending',
 };
 
 const sortingVisualizer = (
@@ -79,6 +80,11 @@ const sortingVisualizer = (
       return {
         ...state,
         status: action.status,
+      };
+    case SortingVisualizerActionTypes.CHANGE_SORTING_ORDER:
+      return {
+        ...state,
+        order: action.order,
       };
     default:
       return state;
