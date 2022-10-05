@@ -20,7 +20,10 @@ const SpeedRange = (): JSX.Element => {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.title}>Speed: </Text>
+        <View style={styles.header}>
+          <Text style={styles.title}>Speed: </Text>
+          <Text style={styles.speedText}>{speed}</Text>
+        </View>
         <View style={styles.rangeContainer}>
           <Text style={styles.minText}>{min}</Text>
           <RangeSlider
@@ -87,9 +90,19 @@ const styles = StyleSheet.create({
   speedRangeContainer: {
     width: 150,
   },
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
   title: {
     color: 'white',
-    marginBottom: 10,
+    margin: 10,
+    fontSize: 15,
+  },
+  speedText: {
+    color: 'white',
   },
   minText: {
     color: 'white',

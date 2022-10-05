@@ -44,9 +44,7 @@ const MenuSettings = (): JSX.Element => {
       <Menu size={containerSize}>
         <View style={[{width: containerSize - 40}, styles.container]}>
           <View style={styles.choseAlgorithmContainer}>
-            <Text style={styles.selectAlgorithmText}>
-              Select an Algorithm:{' '}
-            </Text>
+            <Text style={styles.selectAlgorithmText}>Select an Algorithm:</Text>
             <RNPickerSelect
               items={item}
               onValueChange={value => changeSortingAlgorithm(value)}
@@ -99,10 +97,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginTop: 10,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'green',
   },
 });
 
