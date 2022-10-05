@@ -8,11 +8,15 @@ import sleep from '../../utils/sleep';
 
 const SortButton = (): JSX.Element => {
   const dispatch = useDispatch();
-  const {sortingAlgorithm, arraySize, array, speed} = useSelector(
+  const {sortingAlgorithm, arraySize, array, speed, status} = useSelector(
     (state: AppState) => state.sortingVisualizer,
   );
-  const {sortArray} = bindActionCreators(actionCreators, dispatch);
+  const {sortArray, changeSortingStatus} = bindActionCreators(
+    actionCreators,
+    dispatch,
+  );
   const sort = async () => {
+    // setPause
     if (sortingAlgorithm === 'bubble') {
       const updatedArray = array;
       let previouslySortingIndexFirst: number | null = null;
@@ -48,6 +52,9 @@ const SortButton = (): JSX.Element => {
         }
         updatedArray[i - 1].sorted = true;
         sortArray(updatedArray);
+        if (i === 1) {
+          changeSortingStatus('init||finished');
+        }
       }
       // const iLoop = (i: number) => {
       //   let j = 0;
@@ -97,10 +104,36 @@ const SortButton = (): JSX.Element => {
       // iLoop(arraySize);
     }
   };
+
   return (
     <>
-      <TouchableOpacity style={styles.sortButton} onPress={sort}>
-        <Text style={styles.button}>Sort</Text>
+      <TouchableOpacity
+        style={styles.sortButton}
+        onPress={() => {
+          // if (status === 'started&&sorting') {
+          //   changeSortingStatus('started&&pause');
+          // }
+          // if (status === 'init||finished' || status === 'started&&pause') {
+          //   changeSortingStatus('started&&sorting');
+          //   sort();
+          // }
+          if (status === 'init||finished') {
+            changeSortingStatus('started&&sorting');
+            sort();
+          }
+        }}>
+        <Text style={styles.button}>
+          {/* {status === 'started&&sorting'
+            ? 'Pause'
+            : status === 'started&&pause'
+            ? 'Start'
+            : 'Sort'} */}
+          {status === 'started&&sorting'
+            ? 'Stop'
+            : status === 'init||finished'
+            ? 'Sort'
+            : ''}
+        </Text>
       </TouchableOpacity>
     </>
   );
