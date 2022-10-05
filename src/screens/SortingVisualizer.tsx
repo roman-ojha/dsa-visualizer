@@ -115,6 +115,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: screenConst.screenWidth,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'red',
+    width: screenConst.screenHeight - 150,
   },
   voidContainer: {
     marginBottom: 20,

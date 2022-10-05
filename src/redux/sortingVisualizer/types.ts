@@ -6,15 +6,11 @@ export interface Array {
   // sorting: if particular item is now being evaluating and sorting
 }
 
-// const arraySize = Array(101 - 10)
-//   .fill(0)
-//   .map((_, idx) => 10 + idx);
-// console.log(arraySize);
+export const maximumSortingArraySize: number = 80;
 
 export interface SortingVisualizerState {
   title: 'Bubble Sort' | 'Insertion Sort' | 'Quick Sort' | 'Merge Sort';
   arraySize: number;
-  maximumArraySize: 100;
   sortingAlgorithm: 'bubble' | 'insertion' | 'quick' | 'merge';
   array: Array[];
   speed: 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100;

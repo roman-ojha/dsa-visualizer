@@ -4,18 +4,16 @@ import RangeSlider from 'rn-range-slider';
 import SelectedRail from '../../RangeSlider/SelectedRail';
 import Rail from '../../RangeSlider/Rail';
 import Thumb from '../../RangeSlider/Thumb';
-import {SortingVisualizerState} from '../../../redux/sortingVisualizer/types';
 import {actionCreators, AppState} from '../../../redux';
 import {useSelector, useDispatch} from 'react-redux';
 import Notch from '../../RangeSlider/Notch';
 import {bindActionCreators} from 'redux';
+import {maximumSortingArraySize} from '../../../redux/sortingVisualizer/types';
 
 const ArraySizePicker = (): JSX.Element => {
   const dispatch = useDispatch();
   const min: number = 10;
-  const {arraySize, maximumArraySize} = useSelector(
-    (state: AppState) => state.sortingVisualizer,
-  );
+  const {arraySize} = useSelector((state: AppState) => state.sortingVisualizer);
   const {changeSortingArraySize} = bindActionCreators(actionCreators, dispatch);
   return (
     <>
@@ -28,7 +26,7 @@ const ArraySizePicker = (): JSX.Element => {
           <Text style={styles.minText}>{min}</Text>
           <RangeSlider
             min={min}
-            max={maximumArraySize}
+            max={maximumSortingArraySize}
             step={1}
             disableRange
             floatingLabel={true}
@@ -59,13 +57,13 @@ const ArraySizePicker = (): JSX.Element => {
               [arraySize],
             )}
             onValueChanged={low => {
-              const sortingArraySize = low as SortingVisualizerState['speed'];
+              const sortingArraySize: number = low;
               if (sortingArraySize !== arraySize) {
                 changeSortingArraySize(sortingArraySize);
               }
             }}
           />
-          <Text style={styles.maxText}>{maximumArraySize}</Text>
+          <Text style={styles.maxText}>{maximumSortingArraySize}</Text>
         </View>
       </View>
     </>

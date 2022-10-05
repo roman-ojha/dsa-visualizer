@@ -2,14 +2,14 @@ import {
   SortingVisualizerState,
   SortingVisualizerAction,
   SortingVisualizerActionTypes,
+  maximumSortingArraySize,
 } from './types';
 import generateRandomArray from '../../utils/generateRandomArray';
 
 const initialState: SortingVisualizerState = {
   title: 'Bubble Sort',
-  arraySize: 30,
-  maximumArraySize: 100,
-  array: generateRandomArray(30),
+  arraySize: maximumSortingArraySize,
+  array: generateRandomArray(maximumSortingArraySize),
   sortingAlgorithm: 'bubble',
   speed: 50,
 };
@@ -22,7 +22,7 @@ const sortingVisualizer = (
     case SortingVisualizerActionTypes.GENERATE_RANDOM_SORTING_ARRAY:
       return {
         ...state,
-        array: generateRandomArray(30),
+        array: generateRandomArray(maximumSortingArraySize),
       };
     case SortingVisualizerActionTypes.SORT_ARRAY:
       return {
