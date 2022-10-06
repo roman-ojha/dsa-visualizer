@@ -12,7 +12,7 @@ const generateRandomArray = (length: number): SortingVisualizerArray[] => {
     array.push({
       item: randomNumber10To99(),
       sorted: false,
-      sorting: false,
+      comparing: false,
       min: false,
     });
   }

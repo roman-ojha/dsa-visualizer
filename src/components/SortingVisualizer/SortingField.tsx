@@ -22,7 +22,7 @@ const SortingField = (): JSX.Element => {
               {height: elm.item * heightMultiplyBy},
               elm.sorted
                 ? {backgroundColor: stylesConst.colors.secondary1['600']}
-                : elm.sorting
+                : elm.comparing
                 ? {backgroundColor: stylesConst.colors.secondary2['800']}
                 : {backgroundColor: stylesConst.colors.primary['1000']},
               arraySize > 40 && arraySize <= 50

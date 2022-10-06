@@ -28,17 +28,17 @@ const useBubbleSort = () => {
             previouslySortingIndexFirst !== null &&
             previouslySortingIndexSecond !== null
           ) {
-            updatedArray[previouslySortingIndexFirst].sorting = false;
-            updatedArray[previouslySortingIndexSecond].sorting = false;
+            updatedArray[previouslySortingIndexFirst].comparing = false;
+            updatedArray[previouslySortingIndexSecond].comparing = false;
           }
           if (updatedArray[j].item > updatedArray[j + 1].item) {
             let temp = updatedArray[j + 1];
             updatedArray[j + 1] = updatedArray[j];
             updatedArray[j] = temp;
           }
-          // set sorting to true & false according to situation
-          updatedArray[j].sorting = true;
-          updatedArray[j + 1].sorting = true;
+          // set comparing to true & false according to situation
+          updatedArray[j].comparing = true;
+          updatedArray[j + 1].comparing = true;
           previouslySortingIndexFirst = j;
           previouslySortingIndexSecond = j + 1;
           updateArray(updatedArray);
@@ -48,8 +48,8 @@ const useBubbleSort = () => {
           previouslySortingIndexFirst !== null &&
           previouslySortingIndexSecond !== null
         ) {
-          updatedArray[previouslySortingIndexFirst].sorting = false;
-          updatedArray[previouslySortingIndexSecond].sorting = false;
+          updatedArray[previouslySortingIndexFirst].comparing = false;
+          updatedArray[previouslySortingIndexSecond].comparing = false;
         }
         updatedArray[i - 1].sorted = true;
         updateArray(updatedArray);
@@ -68,17 +68,17 @@ const useBubbleSort = () => {
       //         previouslySortingIndexFirst !== null &&
       //         previouslySortingIndexSecond !== null
       //       ) {
-      //         updatedArray[previouslySortingIndexFirst].sorting = false;
-      //         updatedArray[previouslySortingIndexSecond].sorting = false;
+      //         updatedArray[previouslySortingIndexFirst].comparing = false;
+      //         updatedArray[previouslySortingIndexSecond].comparing = false;
       //       }
       //       if (updatedArray[j].item > updatedArray[j + 1].item) {
       //         let temp = updatedArray[j + 1];
       //         updatedArray[j + 1] = updatedArray[j];
       //         updatedArray[j] = temp;
 
-      //         // set sorting to true & false according to situation
-      //         updatedArray[j].sorting = true;
-      //         updatedArray[j + 1].sorting = true;
+      //         // set comparing to true & false according to situation
+      //         updatedArray[j].comparing = true;
+      //         updatedArray[j + 1].comparing = true;
       //         previouslySortingIndexFirst = j;
       //         previouslySortingIndexSecond = j + 1;
       //       }
@@ -91,8 +91,8 @@ const useBubbleSort = () => {
       //           previouslySortingIndexFirst !== null &&
       //           previouslySortingIndexSecond !== null
       //         ) {
-      //           updatedArray[previouslySortingIndexFirst].sorting = false;
-      //           updatedArray[previouslySortingIndexSecond].sorting = false;
+      //           updatedArray[previouslySortingIndexFirst].comparing = false;
+      //           updatedArray[previouslySortingIndexSecond].comparing = false;
       //         }
       //         updatedArray[i - 1].sorted = true;
       //         sortArray(updatedArray);
@@ -113,17 +113,17 @@ const useBubbleSort = () => {
             previouslySortingIndexFirst !== null &&
             previouslySortingIndexSecond !== null
           ) {
-            updatedArray[previouslySortingIndexFirst].sorting = false;
-            updatedArray[previouslySortingIndexSecond].sorting = false;
+            updatedArray[previouslySortingIndexFirst].comparing = false;
+            updatedArray[previouslySortingIndexSecond].comparing = false;
           }
           if (updatedArray[j].item > updatedArray[j - 1].item) {
             let temp = updatedArray[j - 1];
             updatedArray[j - 1] = updatedArray[j];
             updatedArray[j] = temp;
           }
-          // set sorting to true & false according to situation
-          updatedArray[j].sorting = true;
-          updatedArray[j - 1].sorting = true;
+          // set comparing to true & false according to situation
+          updatedArray[j].comparing = true;
+          updatedArray[j - 1].comparing = true;
           previouslySortingIndexFirst = j;
           previouslySortingIndexSecond = j - 1;
           updateArray(updatedArray);
@@ -133,8 +133,8 @@ const useBubbleSort = () => {
           previouslySortingIndexFirst !== null &&
           previouslySortingIndexSecond !== null
         ) {
-          updatedArray[previouslySortingIndexFirst].sorting = false;
-          updatedArray[previouslySortingIndexSecond].sorting = false;
+          updatedArray[previouslySortingIndexFirst].comparing = false;
+          updatedArray[previouslySortingIndexSecond].comparing = false;
         }
         updatedArray[i].sorted = true;
         updateArray(updatedArray);

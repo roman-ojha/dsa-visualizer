@@ -2,9 +2,11 @@ export interface Array {
   item: number;
   sorted: boolean;
   // sorted: if particular item get sorted
-  sorting: boolean;
-  // sorting: if particular item is now being evaluating and sorting
+  comparing: boolean;
+  // comparing: if particular item is now being evaluating and sorting
+
   min?: boolean;
+  // min: for some of the sorting algorithm
 }
 
 export const maximumSortingArraySize: number = 80;

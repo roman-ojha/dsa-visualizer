@@ -29,6 +29,7 @@ const sortingVisualizer = (
         array: generateRandomArray(state.arraySize),
       };
     case SortingVisualizerActionTypes.UPDATE_ARRAY:
+      console.log('hello');
       return {
         ...state,
         array: action.updatedArray,
@@ -97,7 +98,7 @@ const sortingVisualizer = (
           return {
             item: key.item,
             sorted: false,
-            sorting: false,
+            comparing: false,
           };
         }),
       };
