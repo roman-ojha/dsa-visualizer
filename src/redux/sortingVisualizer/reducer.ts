@@ -6,14 +6,14 @@ import {
 } from './types';
 import generateRandomArray from '../../utils/generateRandomArray';
 
-const initialSortingArraySize = 30;
+const initialSortingArraySize = 20;
 
 const initialState: SortingVisualizerState = {
   title: 'Bubble Sort',
   arraySize: initialSortingArraySize,
   array: generateRandomArray(initialSortingArraySize),
   sortingAlgorithm: 'bubble',
-  speed: 0,
+  speed: 200,
   status: 'init||finished',
   order: 'ascending',
 };

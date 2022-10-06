@@ -11,6 +11,7 @@ import SortButton from '../components/SortingVisualizer/SortButton';
 import MenuSettings from '../components/SortingVisualizer/MenuSettings/Index';
 import EditButton from '../components/SortingVisualizer/EditButton';
 import GenerateRandomArrayButton from '../components/SortingVisualizer/GenerateRandomArrayButton';
+import Info from '../components/SortingVisualizer/Info';
 
 const SortingVisualizer = (): JSX.Element => {
   useEffect(() => {
@@ -31,7 +32,7 @@ const SortingVisualizer = (): JSX.Element => {
           <VisualizerAppIcon />
         </View>
         <View style={styles.middleContainer}>
-          <View style={styles.voidContainer} />
+          <Info />
           <SortingField />
           <View style={styles.titleAndRandomArrayButtonContainer}>
             <GenerateRandomArrayButton />
@@ -68,10 +69,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: screenConst.screenWidth,
     width: screenConst.screenHeight - 150,
-  },
-  voidContainer: {
-    marginBottom: 20,
-    height: 50,
   },
   titleAndRandomArrayButtonContainer: {
     display: 'flex',
