@@ -2,6 +2,7 @@ import {
   SortingVisualizerState,
   SortingVisualizerAction,
   SortingVisualizerActionTypes,
+  Array,
 } from './types';
 import generateRandomArray from '../../utils/generateRandomArray';
 
@@ -85,6 +86,13 @@ const sortingVisualizer = (
       return {
         ...state,
         order: action.order,
+        array: state.array.map(function (key: Array): Array {
+          return {
+            item: key.item,
+            sorted: false,
+            sorting: false,
+          };
+        }),
       };
     default:
       return state;
