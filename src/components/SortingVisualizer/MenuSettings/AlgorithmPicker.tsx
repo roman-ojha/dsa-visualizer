@@ -34,6 +34,10 @@ const AlgorithmPicker = (): JSX.Element => {
       label: 'Quick Sort',
       value: 'quick',
     },
+    {
+      label: 'Selection Sort',
+      value: 'selection',
+    },
   ];
   return (
     <View style={styles.choseAlgorithmContainer}>

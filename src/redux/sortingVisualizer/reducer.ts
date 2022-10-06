@@ -74,6 +74,13 @@ const sortingVisualizer = (
             sortingAlgorithm: action.payload,
             array: generateRandomArray(state.arraySize),
           };
+        case 'selection':
+          return {
+            ...state,
+            title: 'Selection Sort',
+            sortingAlgorithm: action.payload,
+            array: generateRandomArray(state.arraySize),
+          };
         default:
           return state;
       }

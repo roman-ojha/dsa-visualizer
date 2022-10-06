@@ -20,6 +20,10 @@ const useBubbleSort = () => {
       let previouslySortingIndexSecond: number | null = null;
       for (let i = arraySize; i > 0; i--) {
         for (let j = 0; j < i - 1; j++) {
+          // if it is sorted already then no need to sort
+          if (updatedArray[j].sorted) {
+            break;
+          }
           if (
             previouslySortingIndexFirst !== null &&
             previouslySortingIndexSecond !== null

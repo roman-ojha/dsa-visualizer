@@ -4,14 +4,20 @@ export interface Array {
   // sorted: if particular item get sorted
   sorting: boolean;
   // sorting: if particular item is now being evaluating and sorting
+  min?: boolean;
 }
 
 export const maximumSortingArraySize: number = 80;
 
 export interface SortingVisualizerState {
-  title: 'Bubble Sort' | 'Insertion Sort' | 'Quick Sort' | 'Merge Sort';
+  title:
+    | 'Bubble Sort'
+    | 'Insertion Sort'
+    | 'Quick Sort'
+    | 'Merge Sort'
+    | 'Selection Sort';
   arraySize: number;
-  sortingAlgorithm: 'bubble' | 'insertion' | 'quick' | 'merge';
+  sortingAlgorithm: 'bubble' | 'insertion' | 'quick' | 'merge' | 'selection';
   array: Array[];
   speed: 0 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000;
   status: 'started&&sorting' | 'started&&pause' | 'init||finished';
