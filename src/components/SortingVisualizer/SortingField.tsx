@@ -9,15 +9,17 @@ const SortingField = (): JSX.Element => {
     (state: AppState) => state.sortingVisualizer,
   );
 
+  const heightMultiplyBy = 2.1;
+
   return (
     <>
-      <View style={styles.container}>
+      <View style={[styles.container, {height: 100 * heightMultiplyBy}]}>
         {array.map((elm, key) => (
           <View
             key={key}
             style={[
               styles.arrayItem,
-              {height: elm.item * 2.1},
+              {height: elm.item * heightMultiplyBy},
               elm.sorted
                 ? {backgroundColor: stylesConst.colors.secondary1['600']}
                 : elm.sorting
