@@ -24,6 +24,8 @@ const SortingField = (): JSX.Element => {
                 ? {backgroundColor: stylesConst.colors.secondary1['600']}
                 : elm.comparing
                 ? {backgroundColor: stylesConst.colors.secondary2['800']}
+                : elm.min
+                ? {backgroundColor: stylesConst.colors.secondary3['1000']}
                 : {backgroundColor: stylesConst.colors.primary['1000']},
               arraySize > 40 && arraySize <= 50
                 ? // eslint-disable-next-line react-native/no-inline-styles

@@ -20,21 +20,27 @@ const useSelectionSort = () => {
       let previousMinimumIndex: number = 0;
       let min;
       for (let i = 0; i < arraySize; i++) {
+        // if it is sorted already then no need to sort
+        if (newArray[i].sorted) {
+          if (i === arraySize - 1) {
+            changeSortingStatus('init||finished');
+          }
+          continue;
+        }
         min = i;
         newArray[min].min = true;
+        previousMinimumIndex = i;
         updateArray(newArray);
-        for (let j = i; j < arraySize; j++) {
+        await sleep(speed);
+        for (let j = i + 1; j < arraySize; j++) {
           if (previouslyComparedIndex !== null) {
-            newArray[previousMinimumIndex].min = false;
             newArray[previouslyComparedIndex].comparing = false;
           }
           if (newArray[min].item > newArray[j].item) {
-            newArray[j].comparing = true;
-            newArray[min].comparing = true;
-            updateArray(newArray);
-            await sleep(speed);
+            newArray[previousMinimumIndex].min = false;
             min = j;
           }
+          newArray[j].comparing = true;
           newArray[min].min = true;
           previouslyComparedIndex = j;
           previousMinimumIndex = min;

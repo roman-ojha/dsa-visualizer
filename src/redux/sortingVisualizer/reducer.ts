@@ -29,7 +29,6 @@ const sortingVisualizer = (
         array: generateRandomArray(state.arraySize),
       };
     case SortingVisualizerActionTypes.UPDATE_ARRAY:
-      console.log('hello');
       return {
         ...state,
         array: action.updatedArray,

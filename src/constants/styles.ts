@@ -1,8 +1,8 @@
 export default {
   colors: {
     primary: {
-      700: '#c183ffB3',
       1000: '#b282ffff',
+      700: '#c183ffB3',
     },
     secondary1: {
       600: '#FF7B4A99',
@@ -11,6 +11,9 @@ export default {
     secondary2: {
       800: '#FF435BCC',
       150: '#FF435B26',
+    },
+    secondary3: {
+      1000: '#7ed8f6',
     },
     font: {
       // black
