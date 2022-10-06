@@ -8,7 +8,7 @@ const useBubbleSort = () => {
   const {arraySize, array, speed, order} = useSelector(
     (state: AppState) => state.sortingVisualizer,
   );
-  const {sortArray, changeSortingStatus} = bindActionCreators(
+  const {updateArray, changeSortingStatus} = bindActionCreators(
     actionCreators,
     dispatch,
   );
@@ -41,7 +41,7 @@ const useBubbleSort = () => {
           updatedArray[j + 1].sorting = true;
           previouslySortingIndexFirst = j;
           previouslySortingIndexSecond = j + 1;
-          sortArray(updatedArray);
+          updateArray(updatedArray);
           await sleep(speed);
         }
         if (
@@ -52,7 +52,7 @@ const useBubbleSort = () => {
           updatedArray[previouslySortingIndexSecond].sorting = false;
         }
         updatedArray[i - 1].sorted = true;
-        sortArray(updatedArray);
+        updateArray(updatedArray);
         if (i === 1) {
           changeSortingStatus('init||finished');
         }
@@ -126,7 +126,7 @@ const useBubbleSort = () => {
           updatedArray[j - 1].sorting = true;
           previouslySortingIndexFirst = j;
           previouslySortingIndexSecond = j - 1;
-          sortArray(updatedArray);
+          updateArray(updatedArray);
           await sleep(speed);
         }
         if (
@@ -137,7 +137,7 @@ const useBubbleSort = () => {
           updatedArray[previouslySortingIndexSecond].sorting = false;
         }
         updatedArray[i].sorted = true;
-        sortArray(updatedArray);
+        updateArray(updatedArray);
         if (i === arraySize - 1) {
           changeSortingStatus('init||finished');
         }

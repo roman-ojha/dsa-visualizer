@@ -26,7 +26,7 @@ export interface SortingVisualizerState {
 
 export enum SortingVisualizerActionTypes {
   GENERATE_RANDOM_SORTING_ARRAY = 'GENERATE_RANDOM_SORTING_ARRAY',
-  SORT_ARRAY = 'SORT_ARRAY',
+  UPDATE_ARRAY = 'UPDATE_ARRAY',
   CHANGE_SORTING_SPEED = 'CHANGE_SORTING_SPEED',
   CHANGE_SORTING_ARRAY_SIZE = 'CHANGE_SORTING_ARRAY_SIZE',
   CHANGE_SORTING_ALGORITHM = 'CHANGE_SORTING_ALGORITHM',
@@ -38,8 +38,8 @@ export interface GenerateRandomSortingArray {
   type: SortingVisualizerActionTypes.GENERATE_RANDOM_SORTING_ARRAY;
 }
 
-export interface SortArray {
-  type: SortingVisualizerActionTypes.SORT_ARRAY;
+export interface UpdateArray {
+  type: SortingVisualizerActionTypes.UPDATE_ARRAY;
   updatedArray: Array[];
 }
 
@@ -70,7 +70,7 @@ export interface ChangeSortingOrder {
 
 export type SortingVisualizerAction =
   | GenerateRandomSortingArray
-  | SortArray
+  | UpdateArray
   | ChangeSortingSpeed
   | ChangeSortingArraySize
   | ChangeSortingAlgorithm

@@ -28,7 +28,7 @@ const sortingVisualizer = (
         ...state,
         array: generateRandomArray(state.arraySize),
       };
-    case SortingVisualizerActionTypes.SORT_ARRAY:
+    case SortingVisualizerActionTypes.UPDATE_ARRAY:
       return {
         ...state,
         array: action.updatedArray,

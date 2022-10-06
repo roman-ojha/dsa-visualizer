@@ -23,6 +23,10 @@ const AlgorithmPicker = (): JSX.Element => {
       value: 'bubble',
     },
     {
+      label: 'Selection Sort',
+      value: 'selection',
+    },
+    {
       label: 'Insertion Sort',
       value: 'insertion',
     },
@@ -33,10 +37,6 @@ const AlgorithmPicker = (): JSX.Element => {
     {
       label: 'Quick Sort',
       value: 'quick',
-    },
-    {
-      label: 'Selection Sort',
-      value: 'selection',
     },
   ];
   return (

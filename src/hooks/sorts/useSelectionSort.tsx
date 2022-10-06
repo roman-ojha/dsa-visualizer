@@ -15,6 +15,20 @@ const useSelectionSort = () => {
 
   return async (): Promise<void> => {
     if (order === 'ascending') {
+      const newArray = array;
+      let previouslySortingIndexFirst: number | null = null;
+      let previouslySortingIndexSecond: number | null = null;
+      let min = 0;
+      newArray[min].min = true;
+      for (let i = 0; i < arraySize; i++) {
+        for (let j = i; j < arraySize; j++) {
+          if (newArray[min] > newArray[j]) {
+            let temp = newArray[min];
+            newArray[min] = newArray[j];
+            newArray[j] = temp;
+          }
+        }
+      }
     } else {
     }
   };

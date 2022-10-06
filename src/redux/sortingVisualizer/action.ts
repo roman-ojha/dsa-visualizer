@@ -13,10 +13,10 @@ export const generateRandomSortingArray = () => {
   };
 };
 
-export const sortArray = (array: SortingVisualizerState['array']) => {
+export const updateArray = (array: SortingVisualizerState['array']) => {
   return (dispatch: Dispatch<SortingVisualizerAction>) => {
     dispatch({
-      type: SortingVisualizerActionTypes.SORT_ARRAY,
+      type: SortingVisualizerActionTypes.UPDATE_ARRAY,
       updatedArray: array,
     });
   };
