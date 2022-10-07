@@ -11,6 +11,7 @@ import PushRandomValueButton from '../components/StackVisualizer/PushRandomValue
 import StackPushButton from '../components/StackVisualizer/StackPushButton';
 import StackPopButton from '../components/StackVisualizer/StackPopButton';
 import StackField from '../components/StackVisualizer/StackField';
+import Status from '../components/StackVisualizer/Status';
 
 const StackVisualizer = (): JSX.Element => {
   const heightOfMiddleFieldContainer = screenConst.screenHeight - 250;
@@ -25,6 +26,7 @@ const StackVisualizer = (): JSX.Element => {
         <View>
           <Header />
           <Info />
+          <Status />
         </View>
         <View style={[styles.main, {height: heightOfMiddleFieldContainer}]}>
           <PushRandomValueButton />
