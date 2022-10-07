@@ -10,6 +10,8 @@ import {TextInput} from 'react-native-gesture-handler';
 import InputValue from '../components/StackVisualizer/InputValue';
 import PushRandomValueButton from '../components/StackVisualizer/PushRandomValueButton';
 import StackPushButton from '../components/StackVisualizer/StackPushButton';
+import StackPopButton from '../components/StackVisualizer/StackPopButton';
+import StackField from '../components/StackVisualizer/StackField';
 
 const StackVisualizer = (): JSX.Element => {
   const heightOfMiddleFieldContainer = screenConst.screenHeight - 250;
@@ -34,13 +36,16 @@ const StackVisualizer = (): JSX.Element => {
           <View style={styles.middleFieldButtonContainer}>
             <View
               style={[
-                styles.stackPushButtonContainer,
-                {maxHeight: heightOfMiddleFieldContainer},
-              ]}></View>
+                styles.stackPopButtonContainer,
+                {maxHeight: heightOfMiddleFieldContainer - 50},
+              ]}>
+              <StackPopButton />
+            </View>
+            <StackField />
             <View
               style={[
-                styles.stackPopButtonContainer,
-                {maxHeight: heightOfMiddleFieldContainer},
+                styles.stackPushButtonContainer,
+                {maxHeight: heightOfMiddleFieldContainer - 50},
               ]}>
               <StackPushButton />
             </View>
@@ -75,6 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    height: 300,
   },
   stackPushButtonContainer: {
     borderStyle: 'solid',
