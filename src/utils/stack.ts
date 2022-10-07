@@ -2,17 +2,23 @@ import {StackVisualizerState} from '../redux/stackVisualizer/types';
 import generateRandomNumber from './generateRandomNumber';
 
 export const isFull = (state: StackVisualizerState): boolean => {
-  if (state.topOfStack === state.stackSize - 1) {
+  if (state.top === state.stackSize - 1) {
     return true;
   }
   return false;
 };
 
 export const isEmpty = (state: StackVisualizerState): boolean => {
-  if (state.topOfStack === -1) {
+  if (state.top === -1) {
     return true;
   }
   return false;
+};
+
+export const topOfStack = (
+  state: StackVisualizerState,
+): StackVisualizerState['stack'][0] => {
+  return state.stack[state.top];
 };
 
 export const push = (
@@ -28,6 +34,7 @@ export const push = (
   return {
     ...state,
     stack: [...state.stack, data],
+    top: ++state.top,
     status: `pushed ${data}`,
   };
 };
@@ -45,6 +52,7 @@ export const pushRandomItemIntoStack = (
   return {
     ...state,
     stack: [...state.stack, data],
+    top: ++state.top,
     status: `pushed ${data}`,
   };
 };
@@ -60,6 +68,7 @@ export const pop = (state: StackVisualizerState): StackVisualizerState => {
   return {
     ...state,
     stack: state.stack,
+    top: --state.top,
     status: `popped ${data}`,
   };
 };

@@ -1,6 +1,6 @@
 export interface StackVisualizerState {
   stackSize: number;
-  topOfStack: number;
+  top: number;
   stack: number[];
   status: string | null;
 }

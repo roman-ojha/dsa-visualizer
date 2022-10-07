@@ -4,11 +4,12 @@ import {
   StackVisualizerActionTypes,
   StackVisualizerState,
 } from './types';
+import {pop, push, pushRandomItemIntoStack} from '../../utils/stack';
 
 const initialState: StackVisualizerState = {
   stack: [generateRandomNumber(1, 999), generateRandomNumber(20, 100)],
   stackSize: 13,
-  topOfStack: 1,
+  top: 1,
   status: '',
 };
 
@@ -18,33 +19,11 @@ const stackVisualizer = (
 ): StackVisualizerState => {
   switch (action.type) {
     case StackVisualizerActionTypes.PUSH_INTO_STACK:
-      return state;
+      return push(state, action.data);
     case StackVisualizerActionTypes.PUSH_RANDOM_ITEM_INTO_STACK:
-      if (state.topOfStack === state.stackSize - 1) {
-        return {
-          ...state,
-          status: 'stack overflow',
-        };
-      } else {
-        // const newStack = state.stack;
-        // newStack.push(generateRandomNumber(1, 999));
-        return {
-          ...state,
-          stack: [...state.stack, generateRandomNumber(1, 999)],
-          topOfStack: ++state.topOfStack,
-        };
-      }
+      return pushRandomItemIntoStack(state);
     case StackVisualizerActionTypes.POP_FROM_STACK:
-      if (state.topOfStack === -1) {
-        return {
-          ...state,
-          status: 'stack underflow',
-        };
-      } else {
-        return {
-          ...state,
-        };
-      }
+      return pop(state);
     default:
       return state;
   }

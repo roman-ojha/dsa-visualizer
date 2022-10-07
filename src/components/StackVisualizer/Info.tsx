@@ -5,14 +5,15 @@ import {useSelector} from 'react-redux';
 import {AppState} from '../../redux';
 
 const Info = (): JSX.Element => {
-  const {topOfStack, stackSize, stack} = useSelector(
+  const {top, stackSize, stack} = useSelector(
     (state: AppState) => state.stackVisualizer,
   );
+
   return (
     <>
       <View style={styles.container}>
         <Text style={styles.text}>
-          Top of Stack: {stack[topOfStack]} ({topOfStack})
+          Top of Stack: {stack[top]} ({top})
         </Text>
         <Text style={styles.text}>Size: {stackSize}</Text>
       </View>
