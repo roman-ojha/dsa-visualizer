@@ -8,6 +8,7 @@ import Info from '../components/StackVisualizer/Info';
 import EditFooter from '../components/StackVisualizer/EditFooter';
 import {TextInput} from 'react-native-gesture-handler';
 import InputValue from '../components/StackVisualizer/InputValue';
+import PushRandomValueButton from '../components/StackVisualizer/PushRandomValueButton';
 
 const StackVisualizer = (): JSX.Element => {
   return (
@@ -22,7 +23,9 @@ const StackVisualizer = (): JSX.Element => {
           <Header />
           <Info />
         </View>
-        <View style={styles.middleFieldContainer}></View>
+        <View style={styles.middleFieldContainer}>
+          <PushRandomValueButton />
+        </View>
         <InputValue />
         <EditFooter />
       </LinearGradient>
@@ -43,6 +46,9 @@ const styles = StyleSheet.create({
     borderColor: 'green',
     width: screenConst.screenWidth,
     height: screenConst.screenHeight - 250,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
 });
 
