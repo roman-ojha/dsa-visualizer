@@ -1,12 +1,19 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {screenConst, stylesConst} from '../../constants';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const PushRandomValueButton = (): JSX.Element => {
   return (
     <>
       <View style={styles.container}>
         <TouchableOpacity style={[styles.button]}>
+          <Ionicons
+            name="push"
+            color="white"
+            size={20}
+            style={styles.pushIcon}
+          />
           <Text style={styles.text}>Push random value</Text>
         </TouchableOpacity>
       </View>
@@ -16,9 +23,6 @@ const PushRandomValueButton = (): JSX.Element => {
 
 const styles = StyleSheet.create({
   container: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'red',
     width: screenConst.screenWidth,
     display: 'flex',
     justifyContent: 'center',
@@ -26,11 +30,16 @@ const styles = StyleSheet.create({
   },
   button: {
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
     backgroundColor: '#212121',
     borderRadius: 7,
+  },
+  pushIcon: {
+    transform: [{rotate: '180deg'}],
+    marginRight: 5,
   },
   text: {
     color: stylesConst.colors.font[0],

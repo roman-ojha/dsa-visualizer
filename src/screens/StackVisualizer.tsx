@@ -11,6 +11,7 @@ import InputValue from '../components/StackVisualizer/InputValue';
 import PushRandomValueButton from '../components/StackVisualizer/PushRandomValueButton';
 
 const StackVisualizer = (): JSX.Element => {
+  const heightOfMiddleFieldContainer = screenConst.screenHeight - 250;
   return (
     <SafeAreaView>
       <LinearGradient
@@ -23,8 +24,24 @@ const StackVisualizer = (): JSX.Element => {
           <Header />
           <Info />
         </View>
-        <View style={styles.middleFieldContainer}>
+        <View
+          style={[
+            styles.middleFieldContainer,
+            {height: heightOfMiddleFieldContainer},
+          ]}>
           <PushRandomValueButton />
+          <View style={styles.middleFieldButtonContainer}>
+            <View
+              style={[
+                styles.stackPushButtonContainer,
+                {maxHeight: heightOfMiddleFieldContainer},
+              ]}></View>
+            <View
+              style={[
+                styles.stackPopButtonContainer,
+                {maxHeight: heightOfMiddleFieldContainer},
+              ]}></View>
+          </View>
         </View>
         <InputValue />
         <EditFooter />
@@ -42,13 +59,31 @@ const styles = StyleSheet.create({
   },
   middleFieldContainer: {
     borderStyle: 'solid',
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: 'green',
     width: screenConst.screenWidth,
-    height: screenConst.screenHeight - 250,
     display: 'flex',
-    justifyContent: 'flex-end',
     alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  middleFieldButtonContainer: {
+    width: screenConst.screenWidth,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  stackPushButtonContainer: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'red',
+    width: 100,
+  },
+  stackPopButtonContainer: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'green',
+    width: 100,
   },
 });
 
