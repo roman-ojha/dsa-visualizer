@@ -26,11 +26,7 @@ const StackVisualizer = (): JSX.Element => {
           <Header />
           <Info />
         </View>
-        <View
-          style={[
-            styles.middleFieldContainer,
-            {height: heightOfMiddleFieldContainer},
-          ]}>
+        <View style={[styles.main, {height: heightOfMiddleFieldContainer}]}>
           <PushRandomValueButton />
           <View style={styles.middleFieldButtonContainer}>
             <View
@@ -49,9 +45,9 @@ const StackVisualizer = (): JSX.Element => {
               <StackPushButton />
             </View>
           </View>
+          <InputValue />
+          <EditFooter />
         </View>
-        <InputValue />
-        <EditFooter />
       </LinearGradient>
     </SafeAreaView>
   );
@@ -64,7 +60,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  middleFieldContainer: {
+  main: {
     width: screenConst.screenWidth,
     display: 'flex',
     alignItems: 'center',

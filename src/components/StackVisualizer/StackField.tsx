@@ -4,7 +4,7 @@ import {screenConst, stylesConst} from '../../constants';
 
 const StackField = (): JSX.Element => {
   const [stack, setStack] = useState([
-    10, 20, 15, 11, 21, 30, 21, 97, 23, 78, 99, 102,
+    10, 20, 15, 11, 21, 30, 21, 97, 23, 78, 99, 102, 211,
   ]);
   return (
     <>

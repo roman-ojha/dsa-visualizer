@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 10,
   },
   icon: {
     transform: [{rotate: '180deg'}],

@@ -17,6 +17,7 @@ const InputValue = (): JSX.Element => {
           <TextInput
             style={styles.inputValueField}
             placeholder="Insert Value"
+            keyboardType="number-pad"
           />
         </View>
       </View>
