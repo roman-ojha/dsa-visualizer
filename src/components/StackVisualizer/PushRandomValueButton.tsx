@@ -27,9 +27,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'blue',
+    marginBottom: 10,
   },
   button: {
     display: 'flex',
