@@ -1,3 +1,4 @@
+import generateRandomNumber from '../../utils/generateRandomNumber';
 import {
   StackVisualizerAction,
   StackVisualizerActionTypes,
@@ -5,9 +6,9 @@ import {
 } from './types';
 
 const initialState: StackVisualizerState = {
-  stack: [],
+  stack: [generateRandomNumber(1, 999), generateRandomNumber(20, 100)],
   stackSize: 13,
-  topOfStack: -1,
+  topOfStack: 1,
   status: '',
 };
 

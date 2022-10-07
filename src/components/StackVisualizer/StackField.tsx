@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {screenConst, stylesConst} from '../../constants';
+import {useSelector} from 'react-redux';
+import {AppState} from '../../redux';
 
 const StackField = (): JSX.Element => {
-  const [stack, setStack] = useState([
-    10, 20, 15, 11, 21, 30, 21, 97, 23, 78, 99, 102, 211,
-  ]);
+  const {stack} = useSelector((state: AppState) => state.stackVisualizer);
+
   return (
     <>
       <View style={styles.container}>
