@@ -2,12 +2,23 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {screenConst, stylesConst} from '../../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useDispatch} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {actionCreators} from '../../redux';
 
 const PushRandomValueButton = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const {pushRandomItemIntoStack} = bindActionCreators(
+    actionCreators,
+    dispatch,
+  );
+
   return (
     <>
       <View style={styles.container}>
-        <TouchableOpacity style={[styles.button]}>
+        <TouchableOpacity
+          style={[styles.button]}
+          onPress={pushRandomItemIntoStack}>
           <Ionicons
             name="push"
             color="white"

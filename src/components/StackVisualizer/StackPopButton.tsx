@@ -1,11 +1,17 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useDispatch} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {actionCreators} from '../../redux';
 
 const StackPopButton = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const {popFromStack} = bindActionCreators(actionCreators, dispatch);
+
   return (
     <>
-      <TouchableOpacity style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={popFromStack}>
         <Ionicons name="push" color="white" size={20} style={styles.icon} />
         <Text style={styles.text}>Pop</Text>
       </TouchableOpacity>
