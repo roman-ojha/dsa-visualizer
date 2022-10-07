@@ -14,6 +14,14 @@ export const pushIntoStack = (data: number) => {
   };
 };
 
+export const pushRandomItemIntoStack = () => {
+  return (dispatch: Dispatch<StackVisualizerAction>) => {
+    dispatch({
+      type: StackVisualizerActionTypes.PUSH_RANDOM_ITEM_INTO_STACK,
+    });
+  };
+};
+
 export const popFromStack = () => {
   return (dispatch: Dispatch<StackVisualizerAction>) => {
     dispatch({
