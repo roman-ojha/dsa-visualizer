@@ -15,8 +15,6 @@ const StackPushButton = (): JSX.Element => {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    left: 0,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',

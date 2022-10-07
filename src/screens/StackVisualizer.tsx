@@ -6,7 +6,6 @@ import {mixins} from '../styles';
 import Header from '../components/StackVisualizer/Header';
 import Info from '../components/StackVisualizer/Info';
 import EditFooter from '../components/StackVisualizer/EditFooter';
-import {TextInput} from 'react-native-gesture-handler';
 import InputValue from '../components/StackVisualizer/InputValue';
 import PushRandomValueButton from '../components/StackVisualizer/PushRandomValueButton';
 import StackPushButton from '../components/StackVisualizer/StackPushButton';
@@ -79,20 +78,22 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 300,
+    alignItems: 'flex-start',
+    height: 200,
   },
   stackPushButtonContainer: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'red',
     width: 100,
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
   },
   stackPopButtonContainer: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'green',
     width: 100,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
   },
 });
 
