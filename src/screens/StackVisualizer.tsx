@@ -9,6 +9,7 @@ import EditFooter from '../components/StackVisualizer/EditFooter';
 import {TextInput} from 'react-native-gesture-handler';
 import InputValue from '../components/StackVisualizer/InputValue';
 import PushRandomValueButton from '../components/StackVisualizer/PushRandomValueButton';
+import StackPushButton from '../components/StackVisualizer/StackPushButton';
 
 const StackVisualizer = (): JSX.Element => {
   const heightOfMiddleFieldContainer = screenConst.screenHeight - 250;
@@ -40,7 +41,9 @@ const StackVisualizer = (): JSX.Element => {
               style={[
                 styles.stackPopButtonContainer,
                 {maxHeight: heightOfMiddleFieldContainer},
-              ]}></View>
+              ]}>
+              <StackPushButton />
+            </View>
           </View>
         </View>
         <InputValue />
