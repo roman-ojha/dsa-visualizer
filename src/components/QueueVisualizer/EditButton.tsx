@@ -1,8 +1,9 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {screenConst} from '../../constants';
 
-const EditButton = (): JSX.Element => {
-  return <View style={styles.container}>{/* Edit button */}</View>;
+const EditButton: React.FC<{width: number}> = ({width}): JSX.Element => {
+  return <View style={[styles.container, {width}]}>{/* Edit button */}</View>;
 };
 
 const styles = StyleSheet.create({
@@ -10,6 +11,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'yellow',
+    height: screenConst.screenWidth,
   },
 });
 

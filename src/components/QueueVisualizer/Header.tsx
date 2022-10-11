@@ -1,10 +1,11 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {screenConst} from '../../constants';
 import VisualizerAppIcon from '../VisualizerAppIcon';
 
-const Header = (): JSX.Element => {
+const Header: React.FC<{width: number}> = ({width}): JSX.Element => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {width}]}>
       <VisualizerAppIcon />
     </View>
   );
@@ -15,6 +16,8 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'red',
+    height: screenConst.screenWidth,
+    paddingTop: 5,
   },
 });
 

@@ -2,15 +2,17 @@ import React, {useEffect} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {StyleSheet, SafeAreaView, Text, StatusBar, View} from 'react-native';
 import constants, {screenConst} from '../constants';
-import {mixins} from '../styles';
 import Orientation from 'react-native-orientation-locker';
-import VisualizerAppIcon from '../components/VisualizerAppIcon';
 import Header from '../components/QueueVisualizer/Header';
 import VisualizerField from '../components/QueueVisualizer/VisualizerField';
 import InputValue from '../components/QueueVisualizer/InputValue';
 import EditButton from '../components/QueueVisualizer/EditButton';
 
 const QueueVisualizer = (): JSX.Element => {
+  const headerWidth = 55;
+  const editButtonWidth = 80;
+  const middleContainerWidth = screenConst.screenHeight - 55 - 80;
+
   useEffect(() => {
     Orientation.lockToLandscape();
   }, []);
@@ -24,13 +26,13 @@ const QueueVisualizer = (): JSX.Element => {
           constants.styles.colors.secondary2[150],
         ]}
         style={styles.container}>
-        <Header />
-        <View style={styles.middleContainer}>
+        <Header width={headerWidth} />
+        <View style={[styles.middleContainer, {width: middleContainerWidth}]}>
           <Text>Queue</Text>
           <VisualizerField />
           <InputValue />
         </View>
-        <EditButton />
+        <EditButton width={editButtonWidth} />
       </LinearGradient>
     </SafeAreaView>
   );
@@ -49,11 +51,10 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'yellow',
-    width: screenConst.screenHeight - 200,
     height: screenConst.screenWidth,
     display: 'flex',
     justifyContent: 'space-evenly',
-    // alignItems: 'center',
+    alignItems: 'center',
   },
 });
 
