@@ -10,9 +10,21 @@
 
 </div>
 
+## Technology
+* React-Native
+
+### Finished Visualizer:
+* Sorting:
+  * Selection Sort
+  * Bubble Sort
+* Stack
+* Queue
+
+## Remaining Feature to add
+* Path Finder
+* Linked List Visualizer
 
 <div>
-
 
 ### Home & Stack Visualizer
 [<img src="./assets/ui/home.png" width="49.4%" alt="Home_Page"></img>](./assets/ui/home.png)
@@ -25,12 +37,3 @@
 
 ### Queue Visualizer:
 [<img src="./assets/ui/queue.png" width="100%" alt="Home_Page"></img>](./assets/ui/queue.png)
-
-
-
-### Finished Visualizer:
-* Sorting:
-  * Selection Sort
-  * Bubble Sort
-* Stack
-* Queue
