@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     borderColor: 'yellow',
     height: screenConst.screenWidth,
     display: 'flex',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
     alignItems: 'center',
   },
   infoContainer: {
