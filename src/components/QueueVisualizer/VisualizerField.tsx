@@ -4,9 +4,13 @@ import {stylesConst} from '../../constants';
 import DequeueButton from './DequeueButton';
 import EnqueueButton from './EnqueueButton';
 
+const arraySingleBoxSize = 33;
+
 const VisualizerField = (): JSX.Element => {
   const size = 18;
   // can only insert double digit number
+  const front = 0;
+  const rare = 6;
   const array = [
     10,
     20,
@@ -27,9 +31,21 @@ const VisualizerField = (): JSX.Element => {
     null,
     null,
   ];
+  const centerOfSingleArray = arraySingleBoxSize / 2 - 5;
+  const totalArrayToTravelByEnqueue = arraySingleBoxSize * (rare + 1);
+
+  //  1 is margin between array
+  const totalArrayMarginToTravel = 1 * (rare * 2 + 2);
+
   return (
     <View style={styles.container}>
-      <EnqueueButton />
+      <EnqueueButton
+        translateX={
+          centerOfSingleArray +
+          totalArrayToTravelByEnqueue +
+          totalArrayMarginToTravel
+        }
+      />
       <View style={styles.arrayContainer}>
         {array.map((elm, index) => {
           return (
@@ -46,16 +62,16 @@ const VisualizerField = (): JSX.Element => {
 
 const styles = StyleSheet.create({
   container: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'green',
-    alignSelf: 'stretch',
+    // alignSelf: 'stretch',
   },
   arrayContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    // borderStyle: 'solid',
+    // borderWidth: 2,
+    // borderColor: 'green',
   },
   arraySingleBox: {
     backgroundColor: stylesConst.colors.primary[1000],
@@ -64,8 +80,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 33,
-    height: 33,
+    width: arraySingleBoxSize,
+    height: arraySingleBoxSize,
   },
   textElm: {
     fontWeight: '700',
