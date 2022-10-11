@@ -7,6 +7,9 @@ import Header from '../components/QueueVisualizer/Header';
 import VisualizerField from '../components/QueueVisualizer/VisualizerField';
 import InputValue from '../components/QueueVisualizer/InputValue';
 import EditButton from '../components/QueueVisualizer/EditButton';
+import Info from '../components/QueueVisualizer/Info';
+import Status from '../components/QueueVisualizer/Status';
+import Title from '../components/QueueVisualizer/Title';
 
 const QueueVisualizer = (): JSX.Element => {
   const headerWidth = 55;
@@ -28,7 +31,11 @@ const QueueVisualizer = (): JSX.Element => {
         style={styles.container}>
         <Header width={headerWidth} />
         <View style={[styles.middleContainer, {width: middleContainerWidth}]}>
-          <Text>Queue</Text>
+          <View style={styles.infoContainer}>
+            <Title />
+            <Info />
+            <Status />
+          </View>
           <VisualizerField />
           <InputValue />
         </View>
@@ -55,6 +62,15 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+  },
+  infoContainer: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'yellow',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
   },
 });
 
