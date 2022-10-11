@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {StyleSheet, SafeAreaView, Text, StatusBar, View} from 'react-native';
+import {StyleSheet, SafeAreaView, StatusBar, View} from 'react-native';
 import constants, {screenConst} from '../constants';
 import Orientation from 'react-native-orientation-locker';
 import Header from '../components/QueueVisualizer/Header';
