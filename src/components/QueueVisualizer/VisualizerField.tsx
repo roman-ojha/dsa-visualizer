@@ -1,6 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {stylesConst} from '../../constants';
+import DequeueButton from './DequeueButton';
+import EnqueueButton from './EnqueueButton';
 
 const VisualizerField = (): JSX.Element => {
   const size = 18;
@@ -27,6 +29,7 @@ const VisualizerField = (): JSX.Element => {
   ];
   return (
     <View style={styles.container}>
+      <EnqueueButton />
       <View style={styles.arrayContainer}>
         {array.map((elm, index) => {
           return (
@@ -36,7 +39,7 @@ const VisualizerField = (): JSX.Element => {
           );
         })}
       </View>
-      <View style={styles.buttonsContainer}></View>
+      <DequeueButton />
     </View>
   );
 };
@@ -68,7 +71,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 15,
   },
-  buttonsContainer: {},
 });
 
 export default VisualizerField;
