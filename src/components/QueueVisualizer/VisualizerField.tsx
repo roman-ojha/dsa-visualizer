@@ -31,7 +31,7 @@ const VisualizerField = (): JSX.Element => {
     null,
     null,
   ];
-  const centerOfSingleArray = arraySingleBoxSize / 2 - 5;
+  const centerOfSingleArray = arraySingleBoxSize / 2 - 8;
   const totalArrayToTravelByEnqueue = arraySingleBoxSize * (rare + 1);
   //  1 is margin between array
   const totalArrayMarginToTravelByEnqueue = 1 * (rare * 2 + 2);

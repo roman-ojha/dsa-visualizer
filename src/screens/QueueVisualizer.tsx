@@ -55,18 +55,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   middleContainer: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'yellow',
     height: screenConst.screenWidth,
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   infoContainer: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'yellow',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

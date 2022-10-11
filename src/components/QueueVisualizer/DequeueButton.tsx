@@ -10,7 +10,12 @@ const DequeueButton: React.FC<{translateX: number}> = ({
   return (
     <View style={styles.container}>
       <View style={[styles.movableViewContainer, {transform: [{translateX}]}]}>
-        <AntDesignIcon name="arrowup" color="black" />
+        <AntDesignIcon
+          name="arrowup"
+          color="black"
+          size={18}
+          style={styles.arrowIcon}
+        />
         <TouchableOpacity style={[styles.buttonContainer]}>
           <FontAwesome5Icon name="walking" color="white" style={styles.icon} />
           <Text style={styles.text}>Dequeue</Text>
@@ -50,6 +55,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 5,
+  },
+  arrowIcon: {
+    marginTop: 3,
+    marginBottom: 3,
   },
 });
 

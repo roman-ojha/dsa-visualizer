@@ -14,7 +14,12 @@ const EnqueueButton: React.FC<{translateX: number}> = ({
           <FontAwesome5Icon name="walking" color="white" style={styles.icon} />
           <Text style={styles.text}>Enqueue</Text>
         </TouchableOpacity>
-        <AntDesignIcon name="arrowdown" color="black" />
+        <AntDesignIcon
+          name="arrowdown"
+          color="black"
+          style={styles.arrowIcon}
+          size={18}
+        />
       </View>
     </View>
   );
@@ -44,6 +49,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 5,
+  },
+  arrowIcon: {
+    marginTop: 3,
+    marginBottom: 3,
   },
 });
 

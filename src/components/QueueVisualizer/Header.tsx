@@ -13,9 +13,6 @@ const Header: React.FC<{width: number}> = ({width}): JSX.Element => {
 
 const styles = StyleSheet.create({
   container: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'red',
     height: screenConst.screenWidth,
     paddingTop: 5,
   },

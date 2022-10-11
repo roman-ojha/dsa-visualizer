@@ -24,9 +24,6 @@ const InputValue = (): JSX.Element => {
 
 const styles = StyleSheet.create({
   container: {
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: 'blue',
     alignSelf: 'stretch',
     display: 'flex',
     justifyContent: 'center',
