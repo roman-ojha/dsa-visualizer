@@ -10,10 +10,27 @@
 
 </div>
 
+
+<div>
+
+
+### Home & Stack Visualizer
+[<img src="./assets/ui/home.png" width="49.4%" alt="Home_Page"></img>](./assets/ui/home.png)
+[<img src="./assets/ui/stack.png" width="49.4%" alt="Home_Page"></img>](./assets/ui/stack.png)
+
+</div>
+
 ### Sorting Visualizer:
 [<img src="./assets/ui/sorting.png" width="100%" alt="Home_Page"></img>](./assets/ui/sorting.png)
 
+### Queue Visualizer:
+[<img src="./assets/ui/queue.png" width="100%" alt="Home_Page"></img>](./assets/ui/queue.png)
+
+
+
 ### Finished Visualizer:
-* Sorting :
+* Sorting:
   * Selection Sort
   * Bubble Sort
+* Stack
+* Queue
