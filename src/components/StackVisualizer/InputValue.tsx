@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import {screenConst} from '../../constants';
 import CustomIcons from '../CustomIcons/CustomIcons';
 
 const InputValue = (): JSX.Element => {
+  const [value, setValue] = useState<number | null>(null);
   return (
     <>
       <View style={styles.container}>
@@ -18,6 +19,9 @@ const InputValue = (): JSX.Element => {
             style={styles.inputValueField}
             placeholder="Insert Value"
             keyboardType="number-pad"
+            onChangeText={newValue => {
+              setValue(parseInt(newValue, 10));
+            }}
           />
         </View>
       </View>
