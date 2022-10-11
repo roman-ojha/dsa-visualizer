@@ -7,7 +7,7 @@ import EnqueueButton from './EnqueueButton';
 const arraySingleBoxSize = 33;
 
 const VisualizerField = (): JSX.Element => {
-  const size = 18;
+  // const size = 18;
   // can only insert double digit number
   const front = 0;
   const rare = 6;
@@ -33,9 +33,12 @@ const VisualizerField = (): JSX.Element => {
   ];
   const centerOfSingleArray = arraySingleBoxSize / 2 - 5;
   const totalArrayToTravelByEnqueue = arraySingleBoxSize * (rare + 1);
-
   //  1 is margin between array
-  const totalArrayMarginToTravel = 1 * (rare * 2 + 2);
+  const totalArrayMarginToTravelByEnqueue = 1 * (rare * 2 + 2);
+
+  const totalArrayToTravelByDequeue = arraySingleBoxSize * front;
+  //  1 is margin between array
+  const totalArrayMarginToTravelByDequeue = 1 * (front * 2 + 2);
 
   return (
     <View style={styles.container}>
@@ -43,7 +46,7 @@ const VisualizerField = (): JSX.Element => {
         translateX={
           centerOfSingleArray +
           totalArrayToTravelByEnqueue +
-          totalArrayMarginToTravel
+          totalArrayMarginToTravelByEnqueue
         }
       />
       <View style={styles.arrayContainer}>
@@ -55,7 +58,13 @@ const VisualizerField = (): JSX.Element => {
           );
         })}
       </View>
-      <DequeueButton />
+      <DequeueButton
+        translateX={
+          centerOfSingleArray +
+          totalArrayToTravelByDequeue +
+          totalArrayMarginToTravelByDequeue
+        }
+      />
     </View>
   );
 };

@@ -22,18 +22,12 @@ const EnqueueButton: React.FC<{translateX: number}> = ({
 
 const styles = StyleSheet.create({
   container: {
-    // borderStyle: 'solid',
-    // borderWidth: 1,
-    // borderColor: 'blue',
     height: 50,
   },
   movableViewContainer: {
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
-    // borderStyle: 'solid',
-    // borderWidth: 1,
-    // borderColor: 'yellow',
   },
   buttonContainer: {
     display: 'flex',
