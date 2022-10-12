@@ -1,5 +1,13 @@
 import React from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import {stylesConst} from '../../constants';
 import CustomIcons from '../CustomIcons/CustomIcons';
 
 const InputValue = (): JSX.Element => {
@@ -18,6 +26,15 @@ const InputValue = (): JSX.Element => {
           keyboardType="number-pad"
         />
       </View>
+      <TouchableOpacity style={[styles.enqueueRandomValueButtonContainer]}>
+        <FontAwesome5Icon
+          name="walking"
+          color="white"
+          style={styles.enqueueRandomValueIcon}
+          size={15}
+        />
+        <Text style={styles.enqueueRandomValueText}>Enqueue random value</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -26,8 +43,10 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'relative',
   },
   inputValueFieldContainer: {
     borderStyle: 'solid',
@@ -48,6 +67,25 @@ const styles = StyleSheet.create({
     width: 120,
     height: 45,
     fontSize: 15,
+  },
+  enqueueRandomValueButtonContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    backgroundColor: '#212121',
+    borderRadius: 5,
+    position: 'absolute',
+    right: 0,
+  },
+  enqueueRandomValueText: {
+    color: stylesConst.colors.font[0],
+    fontSize: 15,
+  },
+  enqueueRandomValueIcon: {
+    marginRight: 5,
   },
 });
 

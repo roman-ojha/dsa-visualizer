@@ -5,7 +5,7 @@ import constants, {screenConst} from '../constants';
 import Orientation from 'react-native-orientation-locker';
 import Header from '../components/QueueVisualizer/Header';
 import VisualizerField from '../components/QueueVisualizer/VisualizerField';
-import InputValue from '../components/QueueVisualizer/InputValue';
+import InputAndEnqueueRandom from '../components/QueueVisualizer/InputAndEnqueueRandom';
 import EditButton from '../components/QueueVisualizer/EditButton';
 import Info from '../components/QueueVisualizer/Info';
 import Status from '../components/QueueVisualizer/Status';
@@ -37,7 +37,7 @@ const QueueVisualizer = (): JSX.Element => {
             <Status />
           </View>
           <VisualizerField />
-          <InputValue />
+          <InputAndEnqueueRandom />
         </View>
         <EditButton width={editButtonWidth} />
       </LinearGradient>
