@@ -1,9 +1,9 @@
-import generateRandomNumber from '../../utils/generateRandomNumber';
 import {
   QueueVisualizerAction,
   QueueVisualizerActionTypes,
   QueueVisualizerState,
 } from './types';
+import {enqueue, dequeue, enqueueRandomValue} from '../../utils/queue';
 
 const initialState: QueueVisualizerState = {
   queue: [
@@ -38,12 +38,11 @@ const queueVisualizer = (
 ): QueueVisualizerState => {
   switch (action.type) {
     case QueueVisualizerActionTypes.ENQUEUE_Into_QUEUE:
-      // can only insert double digit number
-      return state;
+      return enqueue(state, action.data);
     case QueueVisualizerActionTypes.DEQUEUE_FROM_QUEUE:
-      return state;
+      return dequeue(state);
     case QueueVisualizerActionTypes.ENQUEUE_RANDOM_VALUE_INTO_QUEUE:
-      return state;
+      return enqueueRandomValue(state);
     default:
       return state;
   }

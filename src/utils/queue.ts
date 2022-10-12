@@ -1,4 +1,5 @@
 import {QueueVisualizerState} from '../redux/queueVisualizer/types';
+import generateRandomNumber from './generateRandomNumber';
 
 const isEmpty = (state: QueueVisualizerState): boolean => {
   if (state.front - 1 === state.rare) {
@@ -26,6 +27,7 @@ export const enqueue = (
       status: 'First input value in input field',
     };
   } else if (data > 99 || data < -99) {
+    // can only insert double digit number
     return {
       ...state,
       status: 'Please enqueue upto 2 digit number',
@@ -73,6 +75,33 @@ export const dequeue = (state: QueueVisualizerState): QueueVisualizerState => {
       front: ++state.front,
       status: `dequeued ${state.queue[state.front]}`,
       queue,
+    };
+  }
+};
+
+export const enqueueRandomValue = (
+  state: QueueVisualizerState,
+): QueueVisualizerState => {
+  const data = generateRandomNumber(0, 99);
+  if (isEmpty(state)) {
+    return {
+      ...state,
+      front: 0,
+      rare: 0,
+      status: `Enqueued ${data}`,
+      queue: [...state.queue, data],
+    };
+  } else if (isFull(state)) {
+    return {
+      ...state,
+      status: 'Queue is full',
+    };
+  } else {
+    return {
+      ...state,
+      rare: ++state.rare,
+      status: `Enqueued ${data}`,
+      queue: [...state.queue, data],
     };
   }
 };
