@@ -30,6 +30,7 @@ const initialState: QueueVisualizerState = {
   front: -1,
   rare: -1,
   status: '',
+  insertValue: '',
 };
 
 const queueVisualizer = (

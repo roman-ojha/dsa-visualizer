@@ -64,11 +64,6 @@ export const dequeue = (state: QueueVisualizerState): QueueVisualizerState => {
       ...state,
       status: 'Queue is Empty',
     };
-  } else if (isFull(state)) {
-    return {
-      ...state,
-      status: 'Queue is Full',
-    };
   } else {
     const queue = state.queue;
     const data = state.queue[state.front];
@@ -76,7 +71,7 @@ export const dequeue = (state: QueueVisualizerState): QueueVisualizerState => {
     if (state.front === state.rare) {
       return {
         ...state,
-        status: 'Queue is Empty',
+        status: `dequeued ${data}`,
         front: -1,
         rare: -1,
         queue,

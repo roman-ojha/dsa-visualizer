@@ -1,8 +1,14 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import CustomIcons from '../CustomIcons/CustomIcons';
+import {useSelector, useDispatch} from 'react-redux';
+import {AppState, actionCreators} from '../../redux';
+import {bindActionCreators} from 'redux';
 
 const InputValue = (): JSX.Element => {
+  // const {insertValue} = useSelector((state: AppState) => state.queueVisualizer);
+  // console.log(insertValue);
+  console.log('hello');
   return (
     <View style={styles.inputValueFieldContainer}>
       <CustomIcons

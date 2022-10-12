@@ -4,6 +4,7 @@ export interface QueueVisualizerState {
   rare: number;
   queue: (number | null)[];
   status: string | null;
+  insertValue: string | null;
 }
 
 export enum QueueVisualizerActionTypes {
