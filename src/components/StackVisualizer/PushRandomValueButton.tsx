@@ -7,10 +7,9 @@ import {bindActionCreators} from 'redux';
 import {actionCreators} from '../../redux';
 
 const PushRandomValueButton = (): JSX.Element => {
-  const dispatch = useDispatch();
   const {pushRandomItemIntoStack} = bindActionCreators(
     actionCreators,
-    dispatch,
+    useDispatch(),
   );
 
   return (

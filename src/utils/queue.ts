@@ -2,7 +2,7 @@ import {QueueVisualizerState} from '../redux/queueVisualizer/types';
 import generateRandomNumber from './generateRandomNumber';
 
 const isEmpty = (state: QueueVisualizerState): boolean => {
-  if (state.front - 1 === state.rare) {
+  if (state.front === -1 && state.rare === -1) {
     return true;
   } else {
     return false;
@@ -33,13 +33,15 @@ export const enqueue = (
       status: 'Please enqueue upto 2 digit number',
     };
   }
+  const queue = state.queue;
+  queue[state.rare + 1] = data;
   if (isEmpty(state)) {
     return {
       ...state,
       front: 0,
       rare: 0,
       status: `Enqueued ${data}`,
-      queue: [...state.queue, data],
+      queue,
     };
   } else if (isFull(state)) {
     return {
@@ -51,7 +53,7 @@ export const enqueue = (
       ...state,
       rare: ++state.rare,
       status: `Enqueued ${data}`,
-      queue: [...state.queue, data],
+      queue,
     };
   }
 };
@@ -69,11 +71,21 @@ export const dequeue = (state: QueueVisualizerState): QueueVisualizerState => {
     };
   } else {
     const queue = state.queue;
+    const data = state.queue[state.front];
     queue[state.front] = null;
+    if (state.front === state.rare) {
+      return {
+        ...state,
+        status: 'Queue is Empty',
+        front: -1,
+        rare: -1,
+        queue,
+      };
+    }
     return {
       ...state,
       front: ++state.front,
-      status: `dequeued ${state.queue[state.front]}`,
+      status: `dequeued ${data}`,
       queue,
     };
   }
@@ -83,13 +95,15 @@ export const enqueueRandomValue = (
   state: QueueVisualizerState,
 ): QueueVisualizerState => {
   const data = generateRandomNumber(0, 99);
+  const queue = state.queue;
   if (isEmpty(state)) {
+    queue[state.rare + 1] = data;
     return {
       ...state,
       front: 0,
       rare: 0,
       status: `Enqueued ${data}`,
-      queue: [...state.queue, data],
+      queue,
     };
   } else if (isFull(state)) {
     return {
@@ -97,11 +111,12 @@ export const enqueueRandomValue = (
       status: 'Queue is full',
     };
   } else {
+    queue[state.rare + 1] = data;
     return {
       ...state,
       rare: ++state.rare,
       status: `Enqueued ${data}`,
-      queue: [...state.queue, data],
+      queue,
     };
   }
 };

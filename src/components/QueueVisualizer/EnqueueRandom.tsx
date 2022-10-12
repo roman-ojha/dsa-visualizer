@@ -2,10 +2,20 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import {stylesConst} from '../../constants';
+import {actionCreators} from '../../redux';
+import {useDispatch} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 const EnqueueRandom = (): JSX.Element => {
+  const {enqueueRandomValueIntoQueue} = bindActionCreators(
+    actionCreators,
+    useDispatch(),
+  );
+
   return (
-    <TouchableOpacity style={[styles.enqueueRandomValueButtonContainer]}>
+    <TouchableOpacity
+      style={[styles.enqueueRandomValueButtonContainer]}
+      onPress={enqueueRandomValueIntoQueue}>
       <FontAwesome5Icon
         name="walking"
         color="white"

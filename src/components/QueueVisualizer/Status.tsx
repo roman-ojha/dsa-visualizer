@@ -1,12 +1,16 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {screenConst} from '../../constants';
+import {AppState} from '../../redux';
+import {useSelector} from 'react-redux';
 
 const Status = (): JSX.Element => {
+  const {status} = useSelector((state: AppState) => state.queueVisualizer);
+
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.status}>Queue full</Text>
+        <Text style={styles.status}>{status}</Text>
       </View>
     </>
   );
