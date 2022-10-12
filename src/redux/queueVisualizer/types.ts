@@ -2,7 +2,7 @@ export interface QueueVisualizerState {
   size: number;
   front: number;
   rare: number;
-  queue: number;
+  queue: number[];
   status: string | null;
 }
 
@@ -25,7 +25,7 @@ export interface EnqueueRandomValueIntoQueue {
   type: QueueVisualizerActionTypes.ENQUEUE_RANDOM_VALUE_INTO_QUEUE;
 }
 
-export type StackVisualizerAction =
+export type QueueVisualizerAction =
   | EnqueueIntoQueue
   | DequeueFromQueue
   | EnqueueRandomValueIntoQueue;
