@@ -19,7 +19,7 @@ const isFull = (state: QueueVisualizerState): boolean => {
 
 export const enqueue = (
   state: QueueVisualizerState,
-  data: number,
+  data: number | null,
 ): QueueVisualizerState => {
   if (!data) {
     return {

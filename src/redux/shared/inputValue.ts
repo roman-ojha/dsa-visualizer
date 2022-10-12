@@ -1,6 +1,6 @@
 import {Dispatch} from 'react';
 // types
-type inputValueState = string | null;
+type inputValueState = string;
 
 enum InputValueActionTypes {
   CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE',

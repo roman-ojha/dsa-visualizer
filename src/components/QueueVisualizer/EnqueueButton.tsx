@@ -3,14 +3,29 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {stylesConst} from '../../constants';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
+import {useSelector, useDispatch} from 'react-redux';
+import {AppState, actionCreators} from '../../redux';
+import {bindActionCreators} from 'redux';
 
 const EnqueueButton: React.FC<{translateX: number}> = ({
   translateX,
 }): JSX.Element => {
+  const value = useSelector((state: AppState) => state.inputValueReducer);
+  const {enqueueIntoQueue, changeInputValue} = bindActionCreators(
+    actionCreators,
+    useDispatch(),
+  );
   return (
     <View style={styles.container}>
       <View style={[styles.movableViewContainer, {transform: [{translateX}]}]}>
-        <TouchableOpacity style={[styles.buttonContainer]}>
+        <TouchableOpacity
+          style={[styles.buttonContainer]}
+          onPress={() => {
+            if (value) {
+              enqueueIntoQueue(parseInt(value, 10));
+              changeInputValue('');
+            }
+          }}>
           <FontAwesome5Icon name="walking" color="white" style={styles.icon} />
           <Text style={styles.text}>Enqueue</Text>
         </TouchableOpacity>

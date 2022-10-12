@@ -6,9 +6,8 @@ import {AppState, actionCreators} from '../../redux';
 import {bindActionCreators} from 'redux';
 
 const InputValue = (): JSX.Element => {
-  // const {insertValue} = useSelector((state: AppState) => state.queueVisualizer);
-  // console.log(insertValue);
-  console.log('hello');
+  const value = useSelector((state: AppState) => state.inputValueReducer);
+  const {changeInputValue} = bindActionCreators(actionCreators, useDispatch());
   return (
     <View style={styles.inputValueFieldContainer}>
       <CustomIcons
@@ -19,8 +18,12 @@ const InputValue = (): JSX.Element => {
       />
       <TextInput
         style={styles.inputValueField}
-        placeholder="Insert Value"
+        placeholder="Enqueue Value"
         keyboardType="number-pad"
+        value={value}
+        onChangeText={text => {
+          changeInputValue(text);
+        }}
       />
     </View>
   );
