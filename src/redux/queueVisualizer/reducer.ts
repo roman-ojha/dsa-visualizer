@@ -6,19 +6,39 @@ import {
 } from './types';
 
 const initialState: QueueVisualizerState = {
-  queue: [generateRandomNumber(1, 10), generateRandomNumber(1, 10)],
-  size: 13,
-  front: 1,
-  rare: 2,
+  queue: [
+    generateRandomNumber(1, 10),
+    generateRandomNumber(1, 10),
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ],
+  size: 18,
+  front: 0,
+  rare: 1,
   status: '',
 };
 
-const stackVisualizer = (
+const queueVisualizer = (
   state: QueueVisualizerState = initialState,
   action: QueueVisualizerAction,
 ): QueueVisualizerState => {
   switch (action.type) {
     case QueueVisualizerActionTypes.ENQUEUE_Into_QUEUE:
+      // can only insert double digit number
       return state;
     case QueueVisualizerActionTypes.DEQUEUE_FROM_QUEUE:
       return state;
@@ -29,4 +49,4 @@ const stackVisualizer = (
   }
 };
 
-export default stackVisualizer;
+export default queueVisualizer;

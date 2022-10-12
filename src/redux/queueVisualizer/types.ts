@@ -2,7 +2,7 @@ export interface QueueVisualizerState {
   size: number;
   front: number;
   rare: number;
-  queue: number[];
+  queue: (number | null)[];
   status: string | null;
 }
 

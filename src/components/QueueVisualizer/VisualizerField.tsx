@@ -3,34 +3,15 @@ import {StyleSheet, Text, View} from 'react-native';
 import {stylesConst} from '../../constants';
 import DequeueButton from './DequeueButton';
 import EnqueueButton from './EnqueueButton';
+import {AppState} from '../../redux';
+import {useSelector} from 'react-redux';
 
 const arraySingleBoxSize = 33;
 
 const VisualizerField = (): JSX.Element => {
-  // const size = 18;
-  // can only insert double digit number
-  const front = 0;
-  const rare = 6;
-  const array = [
-    10,
-    20,
-    30,
-    40,
-    91,
-    11,
-    23,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-  ];
+  const {queue, front, rare} = useSelector(
+    (state: AppState) => state.queueVisualizer,
+  );
   const centerOfSingleArray = arraySingleBoxSize / 2 - 8;
   const totalArrayToTravelByEnqueue = arraySingleBoxSize * (rare + 1);
   //  1 is margin between array
@@ -50,7 +31,7 @@ const VisualizerField = (): JSX.Element => {
         }
       />
       <View style={styles.arrayContainer}>
-        {array.map((elm, index) => {
+        {queue.map((elm, index) => {
           return (
             <View key={index} style={styles.arraySingleBox}>
               <Text style={styles.textElm}>{elm}</Text>
