@@ -7,8 +7,8 @@ import {
 
 const initialState: QueueVisualizerState = {
   queue: [
-    generateRandomNumber(1, 10),
-    generateRandomNumber(1, 10),
+    null,
+    null,
     null,
     null,
     null,
@@ -27,8 +27,8 @@ const initialState: QueueVisualizerState = {
     null,
   ],
   size: 18,
-  front: 0,
-  rare: 1,
+  front: -1,
+  rare: -1,
   status: '',
 };
 

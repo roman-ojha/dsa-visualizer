@@ -59,9 +59,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    // borderStyle: 'solid',
-    // borderWidth: 2,
-    // borderColor: 'green',
   },
   arraySingleBox: {
     backgroundColor: stylesConst.colors.primary[1000],
