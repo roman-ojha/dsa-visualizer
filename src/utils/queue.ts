@@ -34,8 +34,8 @@ export const enqueue = (
     };
   }
   const queue = state.queue;
-  queue[state.rare + 1] = data;
   if (isEmpty(state)) {
+    queue[state.rare + 1] = data;
     return {
       ...state,
       front: 0,
@@ -49,6 +49,7 @@ export const enqueue = (
       status: 'Queue is full',
     };
   } else {
+    queue[state.rare + 1] = data;
     return {
       ...state,
       rare: ++state.rare,

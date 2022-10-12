@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import {screenConst} from '../../constants';
 import CustomIcons from '../CustomIcons/CustomIcons';
+import {useSelector, useDispatch} from 'react-redux';
+import {AppState, actionCreators} from '../../redux';
+import {bindActionCreators} from 'redux';
 
 const InputValue = (): JSX.Element => {
-  const [value, setValue] = useState<number | null>(null);
+  const value = useSelector((state: AppState) => state.inputValueReducer);
+  const {changeInputValue} = bindActionCreators(actionCreators, useDispatch());
   return (
     <>
       <View style={styles.container}>
@@ -19,8 +23,9 @@ const InputValue = (): JSX.Element => {
             style={styles.inputValueField}
             placeholder="Insert Value"
             keyboardType="number-pad"
-            onChangeText={newValue => {
-              setValue(parseInt(newValue, 10));
+            value={value}
+            onChangeText={text => {
+              changeInputValue(text);
             }}
           />
         </View>

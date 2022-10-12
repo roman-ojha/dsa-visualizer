@@ -1,20 +1,26 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {actionCreators, AppState} from '../../redux';
 
 const StackPushButton = (): JSX.Element => {
-  const dispatch = useDispatch();
-  const {pushIntoStack} = bindActionCreators(actionCreators, dispatch);
+  const value = useSelector((state: AppState) => state.inputValueReducer);
+  const {pushIntoStack, changeInputValue} = bindActionCreators(
+    actionCreators,
+    useDispatch(),
+  );
 
   return (
     <>
       <TouchableOpacity
         style={styles.container}
         onPress={() => {
-          // pushIntoStack();
+          if (value) {
+            pushIntoStack(parseInt(value, 10));
+            changeInputValue('');
+          }
         }}>
         <Ionicons name="push" color="white" size={20} style={styles.icon} />
         <Text style={styles.text}>Push</Text>
